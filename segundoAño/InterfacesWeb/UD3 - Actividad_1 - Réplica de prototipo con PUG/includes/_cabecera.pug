@@ -1,0 +1,27 @@
+header.cabecera
+  .fila-superior
+    .marca
+      .logo-caja
+        img.logo-simbolo(src="assets/img/logotipo.png", alt="Logotipo")
+      .info-marca
+        h1.nombre-empresa #{nombreEmpresa}
+        p.descripcion-empresa #{descripcionEmpresa}
+
+    .utilidades-derecha
+      .idiomas
+        each lang in idiomas
+          button.btn-idioma(type="button") #{lang}
+      .enlaces-utilidad
+        each enlace, i in enlacesSuperiores
+          a(href="#") #{enlace}
+          if i < enlacesSuperiores.length - 1
+            span  | 
+
+  nav.barra-nav
+    ul.lista-nav
+      each item in menuPrincipal
+        li
+          a(href="#") #{item}
+    form.buscador(action="#", method="get")
+      input(type="search", placeholder="Buscar", aria-label="Search")
+      button(type="submit")

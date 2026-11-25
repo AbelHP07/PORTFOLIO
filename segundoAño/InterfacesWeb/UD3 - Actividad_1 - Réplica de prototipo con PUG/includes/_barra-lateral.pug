@@ -1,0 +1,12 @@
+aside.columna-derecha
+  +caja-lateral("Social")
+    video.video-social(controls)
+      source(src="assets/video/VideoVideojuegosDeFondo.mp4", type="video/mp4")
+      | Tu navegador no soporta vídeo HTML5.
+    a.btn-bloque(href="#share") Compartir - Links
+
+  +caja-lateral("Navegación")
+    ul.lista-navegacion
+      each item in itemsNavegacion
+        li
+          a(href="#") #{item}

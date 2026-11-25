@@ -1,0 +1,11 @@
+mixin caja-lateral(titulo)
+  section.caja-lateral
+    h2.titulo-lateral #{titulo}
+    .contenido-lateral
+      block
+
+mixin tarjeta-boletin(imagen, titulo, subtitulo)
+  article.tarjeta-boletin
+    img.img-boletin(src=imagen, alt=titulo)
+    p.tarjeta-titulo #{titulo}
+    p.tarjeta-subtitulo #{subtitulo}

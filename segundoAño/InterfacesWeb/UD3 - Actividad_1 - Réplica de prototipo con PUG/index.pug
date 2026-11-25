@@ -1,0 +1,61 @@
+- const nombreEmpresa = "PixelForge Studio"
+- const descripcionEmpresa = "Juegos indie, herramientas y mundo digital"
+- const anioActual = 2026
+
+- const idiomas = ["EN", "FR", "DE", "CN"]
+- const enlacesSuperiores = ["Cómo funciona", "Motor de juego", "Blog"]
+- const menuPrincipal = ["Inicio", "Juegos", "Descargas", "Compra", "Ayuda", "Sobre..."]
+- const itemsNavegacion = ["Nuevos Lanzamientos", "Notas de Parche", "Modificaciones", "Comunidad", "Noticias", "Carreras"]
+- const enlacesPie = ["Inicio", "Juegos", "Privacidad", "Términos de uso", "Mapa del sitio", "Links"]
+
+-
+  const tarjetasBoletin = [
+    { img: "assets/img/juego.jpg", titulo: "Vol. 1, Parte 1", subtitulo: "Notas de la versión alfa del nuevo GTA VI" },
+    { img: "assets/img/juego1.jpg", titulo: "Vol. 1, Parte 2", subtitulo: "Shader y guía de instalación" },
+    { img: "assets/img/juego2.jpg", titulo: "Vol. 1, Parte 3", subtitulo: "Soundtrack" },
+    { img: "assets/img/juego3.jpg", titulo: "Vol. 1, Parte 4", subtitulo: "Speedruns de la comunidad" }
+  ]
+
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{nombreEmpresa}
+    link(rel="stylesheet", href="css/estilos.css")
+  body
+    .pagina
+      include includes/_mixins.pug
+      include includes/_cabecera.pug
+
+      main.contenedor-principal
+        .banner
+          img(src="assets/img/banner.jpg", alt="Banner principal de " + nombreEmpresa)
+
+        .columnas
+          section.columna-izquierda
+            h2.titulo-seccion Últimas novedades
+
+            .noticia-destacada
+              img.img-noticia(src="assets/img/noticia.png", alt="Noticia destacada")
+              .texto-noticia
+                p.lead Descripción — Gran actualización.
+                p Acabamos de lanzar nuestra mayor actualización de rendimiento, que incluye tiempos de carga más rápidos, ajustes preestablecidos para mandos y una mejor cadencia de fotogramas tanto en equipos de gama baja como de gama alta.
+
+            .botones-accion
+              a.btn(href="#download") Descargar
+              a.btn(href="#purchase") Comprar
+
+            h2.titulo-seccion Noticias mensuales de #{nombreEmpresa}
+
+            .grid-boletin
+              each tarjeta in tarjetasBoletin
+                +tarjeta-boletin(tarjeta.img, tarjeta.titulo, tarjeta.subtitulo)
+
+            .resenas
+              h3.subtitulo-resenas Reseñas
+              p "Combate fluido, interfaz limpia y nada de elementos cargantes. Sin duda, uno de mis lanzamientos favoritos de este año." - Notch
+
+          include includes/_barra-lateral.pug
+
+      include includes/_pie.pug
