@@ -1,0 +1,116 @@
+<?php
+session_start();
+
+$errores = $_SESSION['errores'] ?? [];
+unset($_SESSION['errores']);
+
+$error_login = $_SESSION['error_login'] ?? "";
+unset($_SESSION['error_login']);
+?>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="font-[Poppins]">
+  <div class="pt-10 ml-15">
+  <!-- FLECHA VOLVER AL INICIO -->
+    <a href="index.php" class="flex items-center text-[#e36935] font-semibold mb-4 hover:underline">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+           class="w-5 h-5" 
+           fill="none" 
+           viewBox="0 0 24 24" 
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M15 19l-7-7 7-7" />
+      </svg>
+      Volver al inicio
+    </a>
+  </div>
+
+<!--FORMULARIO LOGIN -->
+<div class="min-h-screen bg-white flex items-center justify-center px-4">
+  <div class="w-full max-w-md rounded-2xl p-8">
+
+    <!-- LOGO + TITULO -->
+    <div class="text-center mb-5">
+      <a href="index.php">
+      <img src="../assets/iconos/logo.svg" alt="Logo ONG" class="w-20 mx-auto mb-4 animate-pulse">
+      </a>
+
+      <h1 class="text-2xl font-extrabold text-[#4A2C2A]">
+        Iniciar Sesión
+      </h1>
+      <p class="text-sm text-gray-500 mt-1">
+        Todo por una buena causa
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div class="flex items-center mb-5">
+        <hr class="h-0 border-b border-solid grow border-gray-200">
+    </div>
+
+  <?php if(!empty($error_login)): ?>
+    <div class="alert alert-error mt-4 mb-4">
+        <?= $error_login ?>
+    </div>
+  <?php endif; ?>
+
+    <!-- FORMULARIO -->
+    <form action="../controlador/logincontrolador.php" method="POST" class="space-y-5">
+
+      <div>
+        <label class="label text-sm font-semibold">Correo electrónico</label>
+        <input type="email" name="email" required class="input input-bordered w-full rounded-xl" value="<?= isset($_COOKIE['recordar_email']) ? $_COOKIE['recordar_email'] : "" ?>">
+
+        <?php if(isset($errores['email'])): ?>
+          <p class="text-red-500 text-sm mt-1"><?= $errores['email'] ?></p>
+        <?php endif; ?>
+      </div>
+
+      <div>
+        <label class="label text-sm font-semibold">Contraseña</label>
+        <input type="password" name="password" required class="input input-bordered w-full rounded-xl">
+
+        <?php if(isset($errores['password'])): ?>
+          <p class="text-red-500 text-sm mt-1"><?= $errores['password'] ?></p>
+        <?php endif; ?>
+      </div>
+
+      <div class="flex items-center text-sm">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="recordar" class="checkbox checkbox-sm">
+          <span>
+            Recordar
+          </span>
+        </label>
+      </div>
+
+      <button type="submit"
+              class="btn w-full bg-[#e36935] hover:bg-[#d65f2f] border-0 text-white rounded-xl text-lg">
+        Iniciar Sesión
+      </button>
+    </form>
+
+    <!-- LOGIN -->
+    <p class="text-center text-sm mt-8 text-gray-600">
+      ¿No tienes cuenta?
+      <a href="registro.php" class="text-[#e36935] font-semibold hover:underline">
+        Regístrate aquí
+      </a>
+    </p>
+
+  </div>
+</div>
+</body> 
+</html>

@@ -1,0 +1,144 @@
+<?php
+session_start();
+
+/**
+ * Control de sesión: Comprueba si el usuario está autenticado y restringe el acceso directo a la vista
+ */
+$logueado = isset($_SESSION['usuario']);
+
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Dinero</title>
+</head>
+<body class="font-[Poppins] bg-[#f8f4f1]">
+<?php
+/**
+ * Inclusión de: Conexión a la base de datos y cabecera de la página
+ */
+require_once "../conexion/Conexion.php";
+require_once __DIR__."/../partials/header.php";
+?>
+
+        <main class="flex-grow py-16 flex items-center justify-center px-4 mt-18 mb-18">
+            <div class="bg-white max-w-2xl w-full mx-auto rounded-2xl shadow-xl p-8 md:p-12">
+            
+            <div class="text-center mb-10">
+                <h1 class="text-3xl md:text-4xl font-bold text-[#4A2C2A] mb-4">
+                    Haz un donativo
+                </h1>
+                <p class="text-gray-600">
+                    Tu aportación nos ayuda a seguir salvando vidas y llevando recursos básicos a quienes más lo necesitan en África.
+                </p>
+            </div>
+
+            <?php 
+            /**
+             * Muestra y limpia los mensajes de error almacenados en la sesión en caso de fallos en el proceso
+             */
+            if (!empty($_SESSION['error_dinero'])): 
+            ?>
+                <p class="text-sm bg-red-50 p-3 rounded border-l-4 border-red-500 text-red-700 mb-6">
+                    <?= htmlspecialchars($_SESSION['error_dinero']) ?>
+                </p>
+                <?php unset($_SESSION['error_dinero']); ?>
+            <?php endif; ?>
+
+            <form action="/controlador/stripe_donacion.php" method="POST" class="space-y-8">
+                
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-4 text-center">
+                        Selecciona una cantidad a donar
+                    </label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        
+                        <label class="cursor-pointer">
+                            <input type="radio" name="cantidad" value="5" class="peer sr-only" required>
+                            <div class="rounded-xl border-2 border-gray-200 py-4 text-center text-xl font-bold text-gray-600 peer-checked:border-[#e36935] peer-checked:bg-[#e36935] peer-checked:text-white hover:border-[#e36935] transition-all">
+                                5€
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="cantidad" value="10" class="peer sr-only">
+                            <div class="rounded-xl border-2 border-gray-200 py-4 text-center text-xl font-bold text-gray-600 peer-checked:border-[#e36935] peer-checked:bg-[#e36935] peer-checked:text-white hover:border-[#e36935] transition-all">
+                                10€
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="cantidad" value="25" class="peer sr-only">
+                            <div class="rounded-xl border-2 border-gray-200 py-4 text-center text-xl font-bold text-gray-600 peer-checked:border-[#e36935] peer-checked:bg-[#e36935] peer-checked:text-white hover:border-[#e36935] transition-all">
+                                25€
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="cantidad" value="50" class="peer sr-only">
+                            <div class="rounded-xl border-2 border-gray-200 py-4 text-center text-xl font-bold text-gray-600 peer-checked:border-[#e36935] peer-checked:bg-[#e36935] peer-checked:text-white hover:border-[#e36935] transition-all">
+                                50€
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="cantidad" value="75" class="peer sr-only">
+                            <div class="rounded-xl border-2 border-gray-200 py-4 text-center text-xl font-bold text-gray-600 peer-checked:border-[#e36935] peer-checked:bg-[#e36935] peer-checked:text-white hover:border-[#e36935] transition-all">
+                                75€
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="cantidad" value="100" class="peer sr-only">
+                            <div class="rounded-xl border-2 border-gray-200 py-4 text-center text-xl font-bold text-gray-600 peer-checked:border-[#e36935] peer-checked:bg-[#e36935] peer-checked:text-white hover:border-[#e36935] transition-all">
+                                100€
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        O introduce otra cantidad (€)
+                    </label>
+                    <input type="number" name="cantidad_libre" min="1" placeholder="Ej: 150" 
+                           class="input input-bordered w-full rounded-xl">
+                    <p class="text-xs text-gray-500 mt-2">Si rellenas este campo, se ignorará la opción seleccionada arriba.</p>
+                </div>
+
+                <div class="pt-4 space-y-4">
+                    <button type="submit" class="btn w-full bg-[#e36935] hover:bg-[#d65f2f] border-0 text-white rounded-xl text-lg py-3 h-auto">
+                        Confirmar donación
+                    </button>
+                    
+                    <div class="text-center">
+                        <?php if($logueado): ?>
+                            <a href="usuario.php" class="text-[#e36935] font-semibold hover:underline text-sm inline-flex items-center gap-1">
+                                Volver al inicio
+                            </a>
+                        <?php else: ?>
+                            <a href="index.php" class="text-[#e36935] font-semibold hover:underline text-sm inline-flex items-center gap-1">
+                                Volver al inicio
+                            </a>
+                        <?php endif;?>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    
+    <?php 
+    /**
+     * Inclusión condicional del pie de página si el usuario no ha iniciado sesión
+     */
+    if(!$logueado): 
+    ?>
+        <?php include_once __DIR__.'/../partials/footer.php'; ?>
+    <?php endif; ?>
+</body>
+</html>
