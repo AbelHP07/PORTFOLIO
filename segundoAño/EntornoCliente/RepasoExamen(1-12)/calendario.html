@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendario</title>
+</head>
+<body>
+    <h1>
+        Calendario
+    </h1>
+
+    <p id="fecha"></p>
+
+    <script>
+        let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        let html = "";
+        let fecha = new Date();
+
+        let mes = meses[fecha.getMonth()];
+        let anio = fecha.getFullYear();
+
+        let primerDia = new Date(anio, fecha.getMonth(), 1).getDay();
+        let ultimoDia = new Date(anio, fecha.getMonth()+1, 0).getDate();
+
+        let espaciosVacios = primerDia === 0 ? 6 : primerDia -1;
+
+        let diaActual = 1;
+
+        document.getElementById("fecha").textContent = mes+" "+anio;
+
+        html = `<table>
+            <tr>
+                <td>Mon</td>
+                <td>Tues</td>
+                <td>Wed</td>
+                <td>Thu</td>
+                <td>Fri</td>
+                <td>Sat</td>
+                <td>Sun</td>
+            </tr>`;
+
+        html += "<tr>";
+
+        for(let i = 0; i < espaciosVacios; i++){
+            html += "<td></td>";
+        }
+
+        for(let i = espaciosVacios; i < 7; i++){
+            html += "<td>"+diaActual+"</td>";
+            diaActual++;
+        }
+
+        html += "</tr>";
+
+        while(diaActual <= ultimoDia){
+            html += "<tr>";
+            for(let i = 0; i < 7; i++){
+                if(diaActual <= ultimoDia){
+                    html += "<td>"+diaActual+"</td>";
+                }else{
+                    html += "<td></td>";
+                }
+
+                diaActual++;
+            }
+            html += "</tr>";
+        }
+
+        html += "</table>";
+
+        document.body.innerHTML += html;
+    </script>
+</body>
+</html>

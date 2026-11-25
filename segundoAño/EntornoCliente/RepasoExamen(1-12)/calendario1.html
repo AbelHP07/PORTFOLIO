@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+</head>
+<body>
+    <script>
+        let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        let fecha = new Date();
+        let titulo = "Calendario";
+        let parrafoInicial = meses[fecha.getMonth()]+" "+fecha.getFullYear();
+
+        let table = document.createElement("table");
+        let h1Titulo = document.createElement("h1");
+        let trTitulo = document.createElement("tr");
+        let tdTitulo = document.createElement("td");
+
+        let trParrafo = document.createElement("tr");
+        let tdParrafo = document.createElement("td");
+
+        h1Titulo.textContent = titulo;
+        tdTitulo.append(h1Titulo);
+        tdTitulo.colSpan = 7;
+        tdTitulo.style.textAlign = "center";
+        trTitulo.append(tdTitulo);
+        table.append(trTitulo);
+
+        tdParrafo.textContent = parrafoInicial;
+        trParrafo.append(tdParrafo);
+        tdParrafo.colSpan = 7;
+        tdParrafo.style.textAlign = "center";
+        table.append(trParrafo);
+
+        let primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1).getDay();
+        let ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth()+1, 0).getDate();
+        let diaActual = 1;
+
+        let espaciosVacios = primerDia === 0 ? 6 : primerDia -1;
+
+        let diaSemana = ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+        let trDias = document.createElement("tr");
+
+        for(let i = 0; i < 7; i++){
+            let tdDias = document.createElement("td");
+            tdDias.textContent = diaSemana[i];
+            trDias.append(tdDias);
+        }
+
+        table.append(trDias);
+
+        let tr = document.createElement("tr");
+
+        for(let i = 0; i < espaciosVacios; i++){
+            let tdVacios = document.createElement("td");
+            tr.append(tdVacios);
+        }
+
+        for(let i = espaciosVacios; i < 7; i++){
+            let td = document.createElement("td");
+            td.textContent = diaActual;
+            tr.append(td);
+            diaActual++;
+        }
+
+        table.append(tr);
+
+        while(diaActual <= ultimoDia){
+            let tr = document.createElement("tr");
+            for(let i = 0; i < 7; i++){
+                let td = document.createElement("td");
+                if(diaActual <= ultimoDia){
+                    td.textContent = diaActual;
+                    tr.append(td);
+                    diaActual++;
+                }else{
+                    tr.append(td);
+                }
+            }
+            table.append(tr);
+        }
+
+        document.body.append(table);
+    </script>
+</body>
+</html>

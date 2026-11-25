@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+    <script>
+        const arrayObjetos = [
+            {
+                nombre: 'Juan',
+                edad: 23
+            },
+            {
+                nombre: 'Abel',
+                edad: 18
+            },
+            {
+                nombre: 'Pepe',
+                edad: 41
+            }
+        ];
+
+        const mayoresDe30 = arrayObjetos.filter(objeto => objeto.edad >= 30);
+
+        mayoresDe30.forEach(objeto => {
+            document.write(objeto.nombre+'<br><br>');
+            document.write(objeto.edad);
+        });
+
+        const empleados = [
+            {
+                nombre: 'Juan',
+                edad: 20,
+                direccion: [
+                    calle => 'avenida',
+                    edificio => 'bloque de pisos'
+                ]
+            }
+            {
+                nombre: 'María',
+                edad: 35,
+                direccion: [
+                    calle => 'calle',
+                    edificio => 'bloque de pisos'
+                ]
+            }
+            {
+                nombre: 'Álvaro',
+                edad: 32,
+                direccion: [
+                    calle => 'calle',
+                    edificio => 'adosado'
+                ]
+            }
+        ];
+    </script>
+</body>
+</html>
