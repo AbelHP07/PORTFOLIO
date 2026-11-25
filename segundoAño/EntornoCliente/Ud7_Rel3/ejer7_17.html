@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer7_17.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input{
+            width: 80px;
+        }
+        div{
+            background-color: rgb(250, 250, 75);
+            padding-bottom: 20px;
+            padding-top: 3px;
+        }
+        .botones{
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        button{
+            min-width: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>INTRODUCE EL ANCHO Y ALTO DE LA VENTANA:</p>
+
+    <div>
+        <span>ANCHO VENTANA: <input type='number' id='ancho'><br><br></span>
+        <span>ALTO VENTANA: <input type='number' id='alto'><br><br></span>
+        <span class="botones"><button onclick='crearVentana()'>Crear Ventana</button>
+        <button onclick='cerrarVentana()'>Cerrar Ventana</button></span>
+    </div>
+
+    <script>
+        let ventana;
+
+        function crearVentana() {
+            let ancho = document.getElementById("ancho").value;
+            let alto = document.getElementById("alto").value;
+
+            //el primer "" corresponde a la dirección y el segundo al nombre de la ventana
+            ventana = window.open("", "", "width=" + ancho + ",height=" + alto + ",menubar=no,toolbar=no,location=no,status=no");
+
+            ventana.document.write("Esta es la nueva ventana");
+        }
+
+        function cerrarVentana() {
+            if (ventana) {
+                ventana.close();
+            }
+
+            window.close();
+        }
+    </script>
+</body>
+</html>

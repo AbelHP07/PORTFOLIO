@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer7_15.html</title>
+</head>
+<body>
+    <script src="persona.js"></script>
+    <script>
+        let persona1 = new Persona("Ana", "García", "12345678A");
+        let persona2 = new Persona("Carlos", "López", "87654321B");
+
+        document.write("Datos iniciales:<br>");
+        document.write(persona1.getNombre() + "<br>");
+        document.write(persona1.getDNI() + "<br><br>");
+
+        document.write(persona2.getNombre() + "<br>");
+        document.write(persona2.getDNI() + "<br>");
+
+        persona1.setNombre("Ana María");
+        persona2.setDNI("99999999Z");
+
+        document.write('<hr>');
+
+        document.write("Datos modificados:<br>");
+        document.write(persona1.getNombre() + "<br>");
+        document.write(persona1.getDNI() + "<br><br>");
+
+        document.write(persona2.getNombre() + "<br>");
+        document.write(persona2.getDNI() + "<br><br>");
+    </script>
+</body>
+</html>

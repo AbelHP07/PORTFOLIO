@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ejer7_2.html</title>
+</head>
+<body>
+
+<script>
+    let nombres = ["MIGUEL", "ELENA", "JORGE", "CRISTINA", "IGNACIO", "ALICIA"];
+
+    let apellidos = ["GIL", "SANCHEZ", "RODRIGUEZ", "ALONSO", "VEGA", "REY"];
+
+    function mostrarArray() {
+        document.write(nombres);
+    }
+
+    function menu() {
+        document.write(
+            "ARRAY: " + nombres.join(", ") +
+            "<br><br>1. Añadir un elemento al final" +
+            "<br>2. Concatenar los dos arrays" +
+            "<br>3. Invertir el array" +
+            "<br>4. Añadir elementos al inicio" +
+            "<br>5. Eliminar el primer elemento" +
+            "<br>6. Eliminar el último elemento" +
+            "<br>7. Obtener un subconjunto" +
+            "<br>8. Ordenar alfabéticamente" +
+            "<br>0. Salir" +
+            "<br><br>"
+        );
+
+        document.write('Introduce una opción: ' +
+            '<input type="number" id="opcion">' +
+            '<button onclick="ejecutar()">Aceptar</button>'
+        );
+    }
+
+    function ejecutar() {
+        let opcion = document.getElementById("opcion").value;
+
+        switch (opcion) {
+            case "1":
+                let nombre = prompt("Introduce un nombre:");
+                nombres.push(nombre);
+                menu();
+                break;
+
+            case "2":
+                nombres = nombres.concat(apellidos);
+                menu();
+                break;
+
+            case "3":
+                nombres.reverse();
+                menu();
+                break;
+
+            case "4":
+                nombres = apellidos.concat(nombres);
+                menu();
+                break;
+
+            case "5":
+                nombres.shift();
+                menu();
+                break;
+
+            case "6":
+                nombres.pop();
+                menu();
+                break;
+
+            case "7":
+                let inicio = parseInt(prompt("Introduce la posición inicial:"));
+                let final = parseInt(prompt("Introduce la posición final:"));
+
+                let nuevoArray = nombres.slice(inicio, final);
+                menu();
+                document.write(nuevoArray);
+                break;
+
+            case "8":
+                nombres.sort();
+                menu();
+                break;
+
+            case "0":
+                document.write("Fin del programa");
+                break;
+
+            default:
+                document.write("Opción incorrecta");
+                menu();
+        }
+    }
+
+    menu();
+</script>
+
+</body>
+</html>

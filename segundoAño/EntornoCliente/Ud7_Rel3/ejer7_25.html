@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer7_25.html</title>
+</head>
+<body>
+    <script>
+        function compareNum(a, b) {
+            return a - b;
+        }
+
+        let nota = 'Nota: Si no usamos funcion de comparacion para definir el orden, la matriz se ordenara siempre alfabeticamente. "500" vendra antes que "7", pero en una ordenacion numerica, 7 viene antes que 500. Este ejemplo muestra como usar la funcion de comparacion - que ordenara correctamente los elementos tanto en una matriz numerica como de cadenas.';
+        document.write(nota + "<br><br>");
+
+        let c = ["Verde", "Rojo", "Azul"];
+        c.sort();
+        document.write("Ordenado: " + c.slice().sort().join(", ") + "<br><br>");
+
+        let n1 = [70, 800, 9];
+        document.write("Ordenado sin compareNum: " + n1.slice().sort().join(", ") + "<br>");
+        document.write("Ordenado con compareNum: " + n1.slice().sort(compareNum).join(", ") + "<br><br>");
+
+        let n2 = [10, 2, 300, 50];
+        document.write("Ordenado sin compareNum: " + n2.slice().sort().join(", ") + "<br>");
+        document.write("Ordenado con compareNum: " + n2.slice().sort(compareNum).join(", ") + "<br><br>");
+
+        let n3 = [10, 30, 400, 5, 70, 8, 850];
+        document.write("Ordenado sin compareNum: " + n3.slice().sort().join(", ") + "<br>");
+        document.write("Ordenado con compareNum: " + n3.slice().sort(compareNum).join(", ") + "<br>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ejer7_13.html</title>
+    <script src="ejer7_13.js"></script>
+</head>
+<body>
+
+    <script>
+        let jugador1 = new numeroquiniela("juan");
+        let jugador2 = new numeroquiniela("ana");
+
+        jugador1.cargarNumero();
+        jugador2.cargarNumero();
+
+        let b = new bolillero();
+        b.sortear();
+
+        document.write("Numero sorteado:" + b.valorSorteado + "<br>");
+        document.write(jugador1.nombre + " eligio " + jugador1.numero + "<br>");
+        document.write(jugador2.nombre + " eligio " + jugador2.numero + "<br>");
+
+        if (jugador1.numero === b.valorSorteado) {
+            document.write(jugador1.nombre + " a ganado<br>");
+        } else {
+            document.write(jugador1.nombre + " no ha salido agraciado<br>");
+        }
+
+        if (jugador2.numero === b.valorSorteado) {
+            document.write(jugador2.nombre + " a ganado<br>");
+        } else {
+            document.write(jugador2.nombre + " no ha salido agraciado<br>");
+        }
+    </script>
+
+</body>
+</html>

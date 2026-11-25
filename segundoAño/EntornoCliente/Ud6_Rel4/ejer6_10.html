@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer6_10.html</title>
+</head>
+<body>
+    <script>
+        Array.prototype.cumple_criterio = function(){
+            for(let i = this.length - 1;i >= 0; i--){
+                if ((this[i] % 4 == 0 && this[i] % 100 != 0) || this[i] % 400 == 0) {
+                    this.splice(i,1);
+                }else{
+                    continue;
+                }
+            }
+        }
+
+        let array = [];
+
+        for(i=2001;i < 2020; i++){
+            array.push(i);
+        }
+
+        document.write('Los valores del array inicial son: '+array+'<br>');
+
+        array.cumple_criterio();
+
+        document.write('Los valores del array una vez buscado los NO bisiesto son: '+array);
+    </script>
+</body>
+</html>

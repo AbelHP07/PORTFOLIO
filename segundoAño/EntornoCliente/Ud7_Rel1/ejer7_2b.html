@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ejer7_2b.html</title>
+</head>
+<body>
+
+    <h2>Operaciones con arrays</h2>
+
+    <button onclick="anadir()">Añadir elemento</button>
+    <button onclick="concatenar()">Concatenar arrays</button>
+    <button onclick="invertir()">Invertir array</button>
+    <button onclick="anadirInicio()">Añadir al inicio</button>
+    <button onclick="eliminarPrimero()">Eliminar primero</button>
+    <button onclick="eliminarUltimo()">Eliminar último</button>
+    <button onclick="subconjunto()">Obtener subconjunto</button>
+    <button onclick="ordenar()">Ordenar alfabéticamente</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        let nombres = ["MIGUEL", "ELENA", "JORGE", "CRISTINA", "IGNACIO", "ALICIA"];
+
+        let apellidos = ["GIL", "SANCHEZ", "RODRIGUEZ", "ALONSO", "VEGA", "REY"];
+
+        function mostrarArray() {
+            document.getElementById("resultado").textContent = nombres.join(", ");
+        }
+
+        function anadir() {
+            let nombre = prompt("Introduce un nombre:");
+            nombres.push(nombre);
+            mostrarArray();
+        }
+
+        function concatenar() {
+            nombres = nombres.concat(apellidos);
+            mostrarArray();
+        }
+
+        function invertir() {
+            nombres.reverse();
+            mostrarArray();
+        }
+
+        function anadirInicio() {
+            nombres = apellidos.concat(nombres);
+            mostrarArray();
+        }
+
+        function eliminarPrimero() {
+            nombres.shift();
+            mostrarArray();
+        }
+
+        function eliminarUltimo() {
+            nombres.pop();
+            mostrarArray();
+        }
+
+        function subconjunto() {
+            let inicio = parseInt(prompt("Introduce la posición inicial:"));
+            let final = parseInt(prompt("Introduce la posición final:"));
+
+            let nuevoArray = nombres.slice(inicio, final);
+
+            document.getElementById("resultado").textContent = nuevoArray.join(", ");
+        }
+
+        function ordenar() {
+            nombres.sort();
+            mostrarArray();
+        }
+
+        mostrarArray();
+    </script>
+
+</body>
+</html>

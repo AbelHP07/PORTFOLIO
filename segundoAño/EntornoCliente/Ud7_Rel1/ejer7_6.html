@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ejer7_6.html</title>
+</head>
+<body>
+
+<script>
+    let numero = prompt("Introduce un número en base octal:");
+
+    //test devuelve un booleano si no se cumple el patrón anterior
+    let esOctal = /^[0-7]+$/.test(numero);
+
+    if (!esOctal) {
+        alert("El número octal " + numero + " corresponde en decimal al NaN");
+    } else {
+        let decimal = parseInt(numero, 8); //Hace el equivalente en base decimal, según la base que le ponemos (en este caso base 8)
+        alert("El número octal " + numero + " corresponde en decimal al " + decimal);
+    }
+</script>
+
+</body>
+</html>

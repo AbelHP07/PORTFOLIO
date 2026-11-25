@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ejer7_9.html</title>
+</head>
+<body>
+
+    <input type="number" id="num" placeholder="Introduce un número">
+    <button onclick="calcular()">Calcular</button>
+
+    <script>
+        function calcular() {
+            let n = parseInt(document.getElementById("num").value);
+            let primos = [];
+
+            for (let i = 1; i <= n; i++) {
+                let esPrimo = true;
+                if (i < 2) {
+                    esPrimo = false;
+                } else {
+                    for (let j = 2; j < i; j++) {
+                        if (i % j === 0) {
+                            esPrimo = false;
+                            break;
+                        }
+                    }
+                }
+                if (esPrimo) {
+                    primos.push(i);
+                }
+            }
+
+            document.write("<table border='1'>");
+            document.write("<tr><th>Nº</th><th>Primo</th></tr>");
+            for (let i = 0; i < primos.length; i++) {
+                document.write("<tr><td>" + (i + 1) + "</td><td>" + primos[i] + "</td></tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+
+</body>
+</html>

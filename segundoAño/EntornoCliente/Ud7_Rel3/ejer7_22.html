@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer7_22.html</title>
+</head>
+<body>
+    <script>
+        function crearLista(tipo, elementos) {
+            document.write("<" + tipo + ">");
+
+            for (let i = 0; i < elementos.length; i++) {
+                document.write("<li>" + elementos[i] + "</li>");
+            }
+
+            document.write("</" + tipo + ">");
+        }
+
+        //En vez de un array, podemos usar arguments, y pasarle los argumentos sin más, sin ser un array
+        //Usando arguments.length y arguments[i]
+
+        crearLista("ol", ["primero", "segundo", "tercero"]);
+        crearLista("ol", ["hola", "adios"]);
+        crearLista("ul", ["a", "b", "c", "d", "e"]);
+    </script>
+</body>
+</html>

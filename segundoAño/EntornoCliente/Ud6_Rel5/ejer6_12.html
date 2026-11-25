@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer6_12.html</title>
+</head>
+<body>
+    <script>
+        const productos = [
+            { nombre: "Camisa", precio: 25, disponible: true },
+            { nombre: "Pantalón", precio: 40, disponible: false },
+            { nombre: "Zapatos", precio: 60, disponible: true },
+            { nombre: "Gorra", precio: 15, disponible: true },
+            { nombre: "Chaqueta", precio: 80, disponible: false }
+        ];
+
+        const productosDisponibles = productos.filter(producto => producto.disponible === true);
+
+        const productosDisponiblesNombre = productosDisponibles.map(producto => producto.nombre)
+
+        const precioTotal = productosDisponibles.reduce((total,producto) => total += producto.precio,0);
+
+        document.write("<h1>Productos disponibles:</h1>");
+
+        document.write('<ul>');
+            productosDisponiblesNombre.forEach(producto => {
+                document.write('<li>'+producto+'</li>');
+            });
+        document.write('</ul>');
+
+        document.write('Precio Total: $'+precioTotal);
+    </script>
+</body>
+</html>

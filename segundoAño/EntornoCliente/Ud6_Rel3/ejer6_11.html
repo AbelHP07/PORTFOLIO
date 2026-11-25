@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio array asociativo</title>
+    <style>
+        th{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    var cantidad = parseInt(prompt("Introduce la cantidad a desglosar:"));
+
+    var unidades = [1, 5, 10, 25, 50, 100, 200, 500, 1000, 2000, 5000];
+
+    //var fila = new Array();
+
+    var fila = [];
+
+    document.write("<table border='1' align='center' cellpadding='5'>");
+    document.write("<tr><th>DESGLOSES DE LA CANTIDAD: " + cantidad + "</th></tr>");
+
+    for (var i = unidades.length-1; i > 0; i--) {
+        fila['Unidades de ' + unidades[i]] = Math.floor(cantidad / unidades[i]);
+        cantidad = cantidad % unidades[i];
+    }
+
+    for (var clave in fila) {
+        var valor = fila[clave];
+
+        if (valor > 0) {
+            document.write("<tr><td align='center'><b><em>" + clave + " : " + valor + "</em></b></td></tr>");
+        } else {
+            document.write("<tr><td align='center'>" + clave + " : " + valor + "</td></tr>");
+        }
+    }
+
+    document.write("</table>");
+</script>
+
+</body>
+</html>
