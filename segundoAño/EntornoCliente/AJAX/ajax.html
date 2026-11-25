@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <script lang="javascript"> // especificamos el lenguaje en el que se va a ejecutar el código
+    // Creamos la función que va a crear el objeto XMLHttpRequest
+        function getXMLHTTPRequest(){
+
+            // Establecemos el objeto como falso desde un principio para
+            // luego poder comprobar que se ha creado bien con un bloque como:
+            /*
+            
+            if(obj){
+                -código en caso de que se haya podido crear el objeto-
+            }else{
+                -código en caso contrario-
+            }
+
+            */
+            let obj = false;
+
+            // Abrimos un bloque try/catch para que se intente ejecutar un código
+            try{
+
+                // Creamos el objeto para navegadores normales
+                obj = new XMLHttpRequest();
+
+            // En caso de haber error, se detiene la ejecución del código
+            // anterior y se ejecuta este
+            }catch(err1){
+
+                // Volvemos a abrir un try/catch para la ejecución del siguiente bloque
+                try{
+
+                    // Creamos un objeto de tipo XMLHttpRequest para navegadores con
+                    // agunas versiones de IE
+                    obj = new ActiveXObject("Msxm12.XMLHTTP");
+                
+                // En caso de fallo
+                }catch(err2){
+
+                    // Por si falla otra vez
+                    try{
+
+                        // Creamos un nuevo objeto de tipo XMLHttpRequest para navegadores
+                        // Microsoft (otra versión de IE)
+                        obj = new ActiveXObject("Microsoft.XMLHTTP");
+
+                    // En caso de fallo
+                    }catch(err3){
+
+                        // Finalmente, se mantiene falso en caso de no haberse podido crear
+                        // ningún objeto de ningún navegador registrado en los bloques anteriores
+                        obj = false;
+                    }
+                }
+            }
+
+            // Devolvemos el objeto creado (o no creado en caso de haber tenido que llegar
+            // hasta el último catch (err3) )
+            return obj;
+        }
+        // Creamos así finalmente un nuevo objeto XMLHttpRequest con el que podemos usar
+        // propiedades y métodos de este tipo de objeto (llamando a la función que acabamos de crear,
+        // la cual devuelve un objeto XMLHttpRequest según el navegador gracias a nuestra función propia)
+        let xmlhttp = getXMLHTTPRequest();
+    </script>
+</body>
+</html>

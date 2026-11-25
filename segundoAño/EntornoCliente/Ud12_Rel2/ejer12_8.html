@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer12_8.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        p:first-of-type{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        p:nth-of-type(2){
+            font-size: 13px;
+        }
+        p{
+            margin: 10px;
+        }
+        .celdas{
+            width: 60px;
+            height: 40px;
+            text-align: center;
+        }
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div style='background-color: lightsalmon; width: 464px;'>
+    <p style="text-align: center;">CALENDARIO DE JAVASCRIPT</p>
+    <p style="text-align: center;"></p>
+
+    <script>
+        let mesesAnio = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+        let parrafos = document.querySelectorAll('p');
+        let parrafoMes = parrafos[1];
+
+        let fecha = new Date();
+
+        let mes = fecha.getMonth();
+        let anio = fecha.getFullYear();
+        let hoy = fecha.getDate();
+        // primer día del mes
+        let ultimoDia = new Date(anio, mes + 1, 0).getDate();
+        //primer día de la semana
+        let primerDia = new Date(anio, mes, 1).getDay();
+        let espaciosVacios = primerDia === 0 ? 6 : primerDia - 1;
+        let diaActual = 1;
+
+        parrafoMes.textContent = mesesAnio[mes]+' '+anio;
+
+        let html = '';
+        html += "<table style='background-color: lightsalmon;'>";
+        html += "<tr><th>Mon</th><th>Tues</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
+
+        html += "<tr>";
+        for(let i = 0 ; i < espaciosVacios ; i++){
+            html += "<td></td>";
+        }
+
+        for(let i = espaciosVacios ; i < 7 ; i++){
+            if(i == 5 || i == 6){
+                if(diaActual == hoy){
+                    let hora = new Date().getHours();
+                    let min = new Date().getMinutes();
+
+                    let amPM = '';
+                    if(hora <= 12){
+                        amPM = 'AM';
+                    }else{
+                        hora = hora - 12;
+                        amPM = 'PM';
+                    }
+                    html += "<td style='background-color: salmon;'>"+diaActual+" "+hora+":"+min+" "+amPM+"</td>";
+                }else{
+                    html += "<td style='background-color: salmon;'>"+diaActual+"</td>";
+                }
+            }else{
+                if(diaActual == hoy){
+                    let hora = new Date().getHours();
+                    let min = new Date().getMinutes();
+
+                    let amPM = '';
+                    if(hora <= 12){
+                        amPM = 'AM';
+                    }else{
+                        hora = hora - 12;
+                        amPM = 'PM';
+                    }
+                    html += "<td>"+diaActual+" "+hora+":"+min+" "+amPM+"</td>";
+                }else{
+                    html += "<td>"+diaActual+"</td>";
+                }
+            }
+            diaActual++;
+        }
+
+        html += "</tr>";
+
+        while(diaActual <= ultimoDia){
+            html += "<tr>";
+            for(let i = 0 ; i < 7 ; i++){
+                if(diaActual <= ultimoDia){
+                    if(i == 5 || i == 6){
+                        if(diaActual == hoy){
+                            let hora = new Date().getHours();
+                            let min = new Date().getMinutes();
+
+                            let amPM = '';
+                            if(hora <= 12){
+                                amPM = 'AM';
+                            }else{
+                                hora = hora - 12;
+                                amPM = 'PM';
+                            }
+                            html += "<td style='background-color: salmon;'>"+diaActual+"<br>"+hora+":"+min+" "+amPM+"</td>";
+                        }else{
+                            html += "<td style='background-color: salmon;'>"+diaActual+"</td>";
+                        }
+                    }else{
+                        if(diaActual == hoy){
+                            let hora = new Date().getHours();
+                            let min = new Date().getMinutes();
+
+                            let amPM = '';
+                            if(hora <= 12){
+                                amPM = 'AM';
+                            }else{
+                                hora = hora - 12;
+                                amPM = 'PM';
+                            }
+                            html += "<td>"+diaActual+"<br>"+hora+":"+min+" "+amPM+"</td>";
+                        }else{
+                            html += "<td>"+diaActual+"</td>";
+                        }
+                    }
+                }else{
+                    html += "<td></td>";
+                }
+                diaActual++;
+            }
+            html += "</tr>";
+        }
+
+        html += "</table>";
+
+        document.body.innerHTML += html;
+
+        const tabla = document.querySelector("table");
+
+        const grupoTD = document.querySelectorAll("td");
+
+        grupoTD.forEach(td => {
+            td.className = 'celdas';
+            td.style.padding = "3px";
+        });
+
+        const grupoTH = document.querySelectorAll("th");
+
+        grupoTH.forEach(th => {
+            th.className = 'celdas';
+            th.style.backgroundColor = "lightblue";
+            th.style.verticalAlign = "bottom";
+            th.style.border = "2px solid lightsalmon";
+        });
+    </script>
+    </div>
+</body>
+</html>

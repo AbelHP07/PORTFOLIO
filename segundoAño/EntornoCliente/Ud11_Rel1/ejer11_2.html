@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_2.html</title>
+</head>
+<body>
+    <h2>document.getElementById</h2>
+    <br>
+    <textarea id="miTextarea" style="height: 300px; width: 250px;"></textarea>
+    <button id="miBoton">Contenido del TextArea</button>
+
+    <script>
+        document.getElementById("miBoton").onclick = function() {
+            var texto = document.getElementById("miTextarea").value;
+            alert(texto);
+        };
+    </script>
+</body>
+</html>

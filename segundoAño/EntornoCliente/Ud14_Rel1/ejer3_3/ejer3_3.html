@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer3_3.html</title>
+    <style>
+        p{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mostrando datos con AJAX</h1>
+
+    <button id="boton">Mostrar mensaje</button>
+    <div>
+        <p>Aquí aparecerá el texto</p>
+    </div>
+
+    <script>
+        const boton = document.getElementById("boton");
+
+        boton.addEventListener("click", () => {
+            if(window.XMLHttpRequest){
+                let xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.open("GET", "datos.txt", true);
+
+                xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                        document.querySelector("p").textContent = xmlhttp.responseText;
+                    }
+                }
+
+                xmlhttp.send();
+            }
+        });
+    </script>
+</body>
+</html>

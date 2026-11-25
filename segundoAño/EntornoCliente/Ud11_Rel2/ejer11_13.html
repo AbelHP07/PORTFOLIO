@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_13.html</title>
+    <style>
+        .contenedor_principal{
+            position: relative;
+            box-sizing: border-box;
+            height: fit-content;
+            border: 1px solid gray;
+            padding: 10px;
+            padding-top: 15px;
+        }
+        .titulo_contenedor{
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            padding: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Se puede usar un campo fieldset y usando un campo legend con el texto
+     para el texto arriba en medio del borde -->
+
+    <h1>InnerHTML Básico</h1>
+    <p>Usando <em>document.getElementById("").innerHTML</em> muestra en una capa el contenido
+    que se introduce en un <em>&lt;input&gt;</em> de un formulario</p>
+
+    <div class="contenedor_principal" id="contenedor_principal">
+        <p class="titulo_contenedor">Contenido de la capa</p><br>
+        <label for="texto">Contenido de la capa:</label><br><input type="text" id="texto"><br><br>
+        <button type="button">Cambiar contenido</button>
+    </div>
+    <div id="resultado"><p>Esto es una capa</p></div>
+    <script>
+        document.querySelector('#contenedor_principal button').addEventListener('click', () => {
+            let texto = document.getElementById('texto').value;
+            
+            if(texto && texto !== ''){
+                document.getElementById('resultado').innerHTML = '<p>'+texto+'</p>';
+            }else{
+                document.getElementById('resultado').innerHTML = '<p>Esto es una capa</p>';
+            }
+        });
+    </script>
+</body>
+</html>

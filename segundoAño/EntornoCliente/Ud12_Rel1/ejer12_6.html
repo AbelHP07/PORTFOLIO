@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer12_6.html</title>
+    <style>
+        .fondo{
+            background-color: blue;
+        }
+        .altura{
+            height: 150px;
+        }
+        .p{
+            color: yellow;
+        }
+        .p_style{
+            font-style: italic;
+            font-weight: bold;
+            padding: 0;
+            margin: 0;
+        }
+        .centrar{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let div = document.createElement('div');
+
+        div.className = "fondo altura";
+        div.style.paddingTop = "20px";
+        div.style.boxSizing = "border-box";
+        document.body.appendChild(div);
+
+        let p = document.createElement('p');
+
+        p.className = "p p_style centrar";
+        p.style.fontSize = "30px";
+        p.style.fontFamily = "'Lucida Sans', 'Lucida Sans Regular','Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
+        p.textContent = "BIENVENIDO!";
+        div.appendChild(p);
+    </script>
+</body>
+</html>

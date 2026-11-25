@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer12_9.html</title>
+    <style>
+        body p:first-of-type:not(div p){
+            background-color: rgb(178, 253, 155);
+            font-size: 30px;
+            font-weight: bold;
+        }
+        p{
+            padding: 0;
+            margin: 10px;
+        }
+        a{
+            padding: 10px;
+        }
+        body > div{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+            padding: 0;
+        }
+        body > div > div{
+            flex: 0 1 600px;
+        }
+        body > div > div:first-of-type{
+            padding-top: 20px;
+            background-color: lightskyblue;
+            height: fit-content;
+        }
+        body > div > div:last-of-type{
+            background-color: lightpink;
+        }
+        .titulo{
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .segundo, .postre, .precio{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p>Casa Pepe</p>
+    <div>
+        <div>
+            <a href="#" id="primero">Primero</a><br><br>
+            <a href="#" id="segundo">Segundo</a><br><br>
+            <a href="#" id="postre">Postre</a><br><br>
+            <a href="#" id="precio">Precio</a><br><br>
+        </div>
+        <div>
+            <div class="primero">
+                <p class="titulo">Primero</p>
+                <p>Macarrones al dente</p>
+                <p>Paella Valenciana</p>
+            </div>
+            <div class="segundo">
+                <p class="titulo">Segundo</p>
+                <p>Pollo con patatas</p>
+                <p>Ensalada</p>
+            </div>
+            <div class="postre">
+                <p class="titulo">Postre</p>
+                <p>Flan</p>
+                <p>Fruta</p>
+                <p>Cafe</p>
+            </div>
+            <div class="precio">
+                <p class="titulo">Precio</p>
+                <p>Y todo esto por la increible cantidad de 7 euros</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // enlaces
+        const primero = document.getElementById('primero');
+        const segundo = document.getElementById('segundo');
+        const postre = document.getElementById('postre');
+        const precio = document.getElementById('precio');
+
+        // div
+        const divPrimero = document.querySelector('.primero');
+        const divSegundo = document.querySelector('.segundo');
+        const divPostre = document.querySelector('.postre');
+        const divPrecio = document.querySelector('.precio');
+
+        function ocultar(){
+            if(divPrimero.style.display != 'none'){
+                divPrimero.style.display = 'none';
+            }else if(divSegundo.style.display != 'none'){
+                divSegundo.style.display = 'none';
+            }else if(divPostre.style.display != 'none'){
+                divPostre.style.display = 'none';
+            }else if(divPrecio.style.display != 'none'){
+                divPrecio.style.display = 'none';
+            }
+        }
+
+        // cada una hace que cuando se haga click en un enlace,
+        // se oculten primero las demás y luego aparezca la que se ha seleccionado
+
+        primero.addEventListener('click', () => {
+            ocultar();
+            divPrimero.style.display = 'block';
+        });
+
+        segundo.addEventListener('click', () => {
+            ocultar();
+            divSegundo.style.display = 'block';
+        });
+
+        postre.addEventListener('click', () => {
+            ocultar();
+            divPostre.style.display = 'block';
+        });
+
+        precio.addEventListener('click', () => {
+            ocultar();
+            divPrecio.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

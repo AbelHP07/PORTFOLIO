@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer10_4.html</title>
+</head>
+<body>
+
+    <script>
+        // cargamos el fichero json usando fetch
+        fetch('factura.json')
+            // como obtener el fichero puede tardar, una vez que nos devuelva
+            // respuesta lo convertimos de JSON a objeto
+            .then(response => response.json())
+
+            // como también puede tardar la conversión, una vez que termine
+            // empezamos con las funciones y a trabajar con el objeto factura
+            // anteriormentetraído del JSON
+            .then(factura => {
+                
+                // definimos el método dentro del objeto factura cargado
+                factura.calcularTotal = function() {
+                    let sumaBase = 0;
+
+                    // recorremos los elementos para calcular la base
+                    for (let i = 0; i < this.elementos.length; i++) {
+                        sumaBase += this.elementos[i].cantidad * this.elementos[i].precio;
+                    }
+
+                    this.informacion.baseImponible = sumaBase;
+
+                    // calculamos el total aplicando el porcentaje de iva
+                    this.informacion.total = this.informacion.baseImponible * (1 + this.informacion.iva / 100);
+
+                    // mostramos el resultado en un alert
+                    alert("TOTAL = " + this.informacion.total.toFixed(2) + " euros");
+                };
+
+                // ejecutamos el método del objeto
+                factura.calcularTotal();
+            })
+            .catch(error => {
+                // controlamos posibles errores de carga del fichero
+                alert("error al cargar el fichero json: " + error);
+            });
+    </script>
+
+</body>
+</html>

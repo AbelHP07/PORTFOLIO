@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <script lang="javascript">
+        function getXMLHTTPRequest(){
+            let obj = false;
+
+            // Comprobamos que el navegador soporta el objeto estándar de XMLHttpRequest
+            if(window.XMLHttpRequest){
+                obj = new XMLHttpRequest();
+
+            // En caso de que no lo soporte, lo creamos como antes
+            }else{
+                try{
+                    obj = new ActiveXObject("Microsoft.XMLHTTP");
+                }catch(e){
+                    alert("El navegador utilizado no está soportado");
+                }
+            }
+            return obj;
+        }
+        let xmlhttp = getXMLHTTPRequest();
+    </script>
+</body>
+</html>

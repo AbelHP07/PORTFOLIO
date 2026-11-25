@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer3_1.html</title>
+</head>
+<body>
+    <img src="ImagenPrueba.jpg" alt="imagenPrueba" width="200px">
+
+    <form id="formulario">
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre">
+
+        <br>
+
+        <label for="voto">Voto</label>
+        <select name="voto" id="voto">
+            <option value="">seleccione</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+        </select>
+
+        <br>
+
+        <button type="submit">votar</button>
+
+        <p id="resultado_nombre"></p>
+        <p id="resultado_voto"></p>
+    </form>
+    
+    <script>
+        const formulario = document.getElementById("formulario");
+
+        formulario.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            let nombre = formulario.nombre.value;
+            let voto = formulario.voto.value;
+            let xmlhttp = new XMLHttpRequest();
+
+            if(nombre && nombre != "" && isNaN(nombre) && voto && voto != "" && !isNaN(voto)){
+                xmlhttp.open("POST", "ejer3_1.php", true);
+
+                // Con FormData lo que hacemos es maquetar/organizar los datos del fomulario
+                // de forma que se envían como si fuese enviado normalmente hacia el archivo PHP
+                let datosFormulario = new FormData(formulario);
+
+                xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                        // Terminar poniendo split para separar los datos y escribirlos separados
+
+                        let partesFormulario = xmlhttp.responseText.split("-");
+
+                        document.getElementById("resultado_nombre").textContent = "Nombre: "+partesFormulario[0];
+                        document.getElementById("resultado_voto").textContent = "Voto: "+partesFormulario[1];
+                    }
+                }
+
+                // Ya se lo podemos pasar directamente al archivo PHP mediante en send
+                // en ese archivo, PHP los obtiene con $_POST[] a través de sus etiquetas "name"
+                xmlhttp.send(datosFormulario);
+            }
+        });
+    </script>
+</body>
+</html>

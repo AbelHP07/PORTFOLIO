@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de objetos predefinidos</title>
+</head>
+<body>
+    <div id="contenedorResultado"></div>
+
+    <script>
+        // obtenemos la fecha actual con el objeto Date
+        var fechaActual = new Date();
+        
+        // generamos un número aleatorio usando el objeto Math
+        var numeroAleatorio = Math.floor(Math.random() * 50) + 1;
+
+        // creamos una cadena utilizando el objeto String (constructor)
+        var textoEncabezado = new String("Informe oficial generado");
+
+        // seleccionamos el contenedor y creamos elementos nuevos
+        var contenedor = document.getElementById("contenedorResultado");
+        var parrafo = document.createElement("p");
+
+        // asignamos el texto combinando el objeto String, Date y Math
+        parrafo.innerHTML = textoEncabezado + " en el año " + fechaActual.getFullYear() +
+        ". Número de referencia asignado: " + numeroAleatorio;
+
+        // insertamos el párrafo en la estructura de la página
+        contenedor.appendChild(parrafo);
+    </script>
+</body>
+</html>

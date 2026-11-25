@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer12_4.html</title>
+    <style>
+        body{
+            background-color: #323232;
+            color: white;
+        }
+        div{
+            height: 80px;
+            width: 80px;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+        .div1{
+            background-color: lightgray;
+        }
+        .div2{
+            background-color: #323232;
+        }
+        .div3{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <p>Da click a un recuadro para cambiar el fondo de la página</p>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <p id="resultado"></p>
+
+    <script>
+        let grupoDiv = document.querySelectorAll('div');
+
+        grupoDiv[0].addEventListener('click', () => {
+            document.body.className = 'div1';
+        });
+
+        grupoDiv[1].addEventListener('click', () => {
+            document.body.className = 'div2';
+        });
+
+        grupoDiv[2].addEventListener('click', () => {
+            document.body.className = 'div3';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_10.html</title>
+</head>
+<body>
+    <p>Imagen 1: propiedades 'height', 'width' y 'style' no establecidas:</p>
+    <img id="img1" src="sol.svg"><br>
+
+    <p>Imagen 2: propiedades 'height'=100, 'width'=400, pero sin establecer la propiedad 'style':</p>
+    <img id="img2" src="sol.svg" height="100" width="400"><br>
+
+    <p>Imagen 3: propiedades 'height' y 'width' no establecidas, pero sí la propiedad 'style="height: 200px; width: 500px;"':</p>
+    <img id="img3" src="sol.svg" style="height: 200px; width: 500px;"><br>
+
+    <br>
+    <ul id="listaPropiedades"></ul>
+
+    <script>
+        // obtenemos los elementos
+        var img1 = document.getElementById("img1");
+        var img2 = document.getElementById("img2");
+        var img3 = document.getElementById("img3");
+        var lista = document.getElementById("listaPropiedades");
+
+        // leemos y mostramos los atributos
+        window.onload = function() {
+            var li1 = document.createElement("li");
+            li1.textContent = "Imagen 1: alto=" + img1.height + ", ancho=" + img1.width + ", style.height=" + img1.style.height + ", style.width=" + img1.style.width;
+
+            var li2 = document.createElement("li");
+            li2.textContent = "Imagen 2: alto=" + img2.height + ", ancho=" + img2.width + ", style.height=" + img2.style.height + ", style.width=" + img2.style.width;
+
+            var li3 = document.createElement("li");
+            li3.textContent = "Imagen 3: alto=" + img3.height + ", ancho=" + img3.width + ", style.height=" + img3.style.height + ", style.width=" + img3.style.width;
+
+            lista.appendChild(li1);
+            lista.appendChild(li2);
+            lista.appendChild(li3);
+        };
+    </script>
+</body>
+</html>

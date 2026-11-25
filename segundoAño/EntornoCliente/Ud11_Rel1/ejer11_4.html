@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_4.html</title>
+</head>
+<body>
+    <script>
+        function crearCaja() {
+            var input = document.createElement("input");
+            input.type = "text";
+            input.value = "Soy una inocente caja de un HTML";
+            input.style.backgroundColor = "blue";
+            input.style.color = "white";
+            
+            document.body.appendChild(input);
+        }
+
+        crearCaja();
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_12.html</title>
+    <style>
+        span{
+            text-decoration: underline;
+            color: purple;
+            cursor: pointer; /*Para el efecto del falso enlace*/
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio de DOM</h1>
+    <ul>
+        <li><span>Opción 1</span></li>
+    </ul>
+    <button type="button" id="anadir">Añadir</button>
+    <button type="button" id="quitar">Quitar</button>
+    <script>
+        const lista = document.querySelector('ul');
+
+        document.getElementById('anadir').addEventListener('click', function() {
+            const li = document.createElement('li');
+            const span = document.createElement('span');
+            const numero = lista.querySelectorAll('li').length + 1;
+
+            span.textContent = 'Opción ' + numero;
+            li.appendChild(span);
+            lista.appendChild(li);
+        });
+
+        document.getElementById('quitar').addEventListener('click', function() {
+            if (lista.lastElementChild && lista.querySelectorAll('li').length > 1) {
+                lista.lastElementChild.remove();
+            }
+        });
+    </script>
+</body>
+</html>

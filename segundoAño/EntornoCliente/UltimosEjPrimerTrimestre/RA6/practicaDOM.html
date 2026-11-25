@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica básica de DOM</title>
+</head>
+<body>
+    <h1 id="tituloPrincipal">Texto inicial de la página</h1>
+    <button id="botonCambio">Modificar texto</button>
+
+    <script>
+        // cogemos el botón y el título usando métodos del DOM
+        var boton = document.getElementById('botonCambio');
+        var titulo = document.getElementById('tituloPrincipal');
+
+        // añadimos una acción cuando se hace clic en el botón
+        boton.onclick = function() {
+            titulo.innerHTML = "El texto ha sido modificado correctamente";
+        };
+    </script>
+</body>
+</html>

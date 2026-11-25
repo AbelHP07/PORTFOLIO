@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer10_5.html</title>
+</head>
+<body>
+
+    <label for="num">Cantidad:</label>
+    <input type="text" id="num">
+    <button onclick="sumar()">Sumar</button>
+    <button onclick="borrar()">Borrar</button>
+
+    <!-- aquí es donde mostramos la suma acumulada -->
+    <h1 id="resultado"></h1>
+
+    <script>
+        // cargamos el valor almacenado al abrir la página
+        window.onload = function() {
+            mostrar();
+        };
+
+        function sumar() {
+            let valorInput = document.getElementById("num").value;
+            let numero = parseFloat(valorInput);
+
+            // comprobamos que se haya introducido un número válido
+            if (isNaN(numero)) return;
+
+            // obtenemos el total actual de localStorage (si no existe, empezamos en 0)
+            let actual = parseFloat(localStorage.getItem("cantidad")) || 0;
+
+            // sumamos la nueva cantidad
+            let total = actual + numero;
+
+            // guardamos el nuevo total en localStorage
+            localStorage.setItem("cantidad", total);
+
+            mostrar();
+        }
+
+        function mostrar() {
+            let guardado = localStorage.getItem("cantidad");
+            let h1 = document.getElementById("resultado");
+
+            // si hay un valor guardado, lo mostramos en el h1
+            if (guardado !== null) {
+                h1.innerHTML = guardado;
+            } else {
+                h1.innerHTML = "";
+            }
+        }
+
+        function borrar() {
+            // establecemos la cantidad a 0 en localStorage
+            localStorage.setItem("cantidad", 0);
+            mostrar();
+        }
+    </script>
+
+</body>
+</html>

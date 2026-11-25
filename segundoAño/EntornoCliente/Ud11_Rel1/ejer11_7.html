@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_7.html</title>
+</head>
+<body>
+    <p>text</p>
+    <select id="selectText">
+        <option value="black">negro</option>
+        <option value="darkblue">azul oscuro</option>
+    </select>
+
+    <p>bgColor</p>
+    <select id="selectBg">
+        <option value="white">blanco</option>
+        <option value="gray">gris</option>
+    </select>
+
+    <p>link</p>
+    <select id="selectLink">
+        <option value="green">verde</option>
+        <option value="blue">azul</option>
+    </select>
+    <a href="#" id="miEnlace">(enlace de muestra)</a><br><br>
+    <p id="texto">Texto de ejemplo</p>
+
+    <script>
+        // cambiamos el color del texto
+        document.getElementById("selectText").onchange = function() {
+            document.body.style.color = this.value;
+        };
+
+        // cambiamos el fondo de la página
+        document.getElementById("selectBg").onchange = function() {
+            document.body.style.backgroundColor = this.value;
+        };
+
+        // cambiar el color del enlace visitado
+        document.getElementById("selectLink").onchange = function() {
+            document.getElementById("miEnlace").style.color = this.value;
+        };
+
+        // ponemos un color por defecto al enlace
+        document.getElementById("miEnlace").style.color = "green";
+    </script>
+</body>
+</html>

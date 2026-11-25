@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <script lang="javascript">
+        function getXMLHTTPRequest(){
+            let obj = false;
+            try{
+                obj = new XMLHttpRequest();
+            }catch(err1){
+                try{
+                    obj = new ActiveXObject("Msxm12.XMLHTTP");
+                }catch(err2){
+                    try{
+                        obj = new ActiveXObject("Microsoft.XMLHTTP");
+                    }catch(err3){
+                        obj = false;
+                    }
+                }
+            }
+            return obj;
+        }
+        let xmlhttp = getXMLHTTPRequest();
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_9.html</title>
+</head>
+<body>
+    <table border="1" id="miTabla">
+        <tr>
+            <td id="celda11">Fila 1. Celda 1</td>
+            <td>Fila 1. Celda 2</td>
+        </tr>
+        <tr>
+            <td>Fila 2. Celda 1.</td>
+            <td>Fila 2. Celda 2.</td>
+        </tr>
+        <tr>
+            <td>Fila 3. Celda 1.</td>
+            <td>Fila 3. Celda 2.</td>
+        </tr>
+    </table>
+    <br>
+    <button id="btnCambiar">Cambiar contenido Celda [1. 1]</button>
+
+    <script>
+        document.getElementById("btnCambiar").onclick = function() {
+            var nuevoTexto = prompt("Introduce el nuevo contenido para la celda:"); // lo he interpretado como que había que dejar
+            if (nuevoTexto !== null) {                                              // que el usuario introdujera el nuevo contenido
+                var celda = document.getElementById("celda11");
+                celda.textContent = nuevoTexto; // poner un texto default en caso de que no haya introducido nada
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_5.html</title>
+</head>
+<body>
+    <h2>Examenes Medicos</h2>
+    
+    <table border="1" id="tablaMedica">
+        <tr>
+            <th>Tipo</th>
+            <th>Fecha</th>
+            <th>Diag</th>
+        </tr>
+        <tr>
+            <td>Sangre</td>
+            <td>05/02/12</td>
+            <td>Colesterol Alto</td>
+        </tr>
+    </table>
+    <br>
+    <label>Analisis Clinicos: </label>
+    <button id="btnAgregar">Agregar</button>
+
+    <script>
+        document.getElementById("btnAgregar").onclick = function() {
+            var tabla = document.getElementById("tablaMedica");
+            
+            // creamos una nueva fila (tr)
+            var fila = document.createElement("tr");
+            
+            // creamos 3 celdas (td) con inputs dentro
+            for (var i = 0; i < 3; i++) {
+                var celda = document.createElement("td");
+                var input = document.createElement("input");
+                input.type = "text";
+                celda.appendChild(input); // metemos el input en la celda
+                fila.appendChild(celda); // y metemos la celda en la fila
+            }
+            
+            // y luego metemos la fila a la tabla
+            tabla.appendChild(fila);
+        };
+    </script>
+</body>
+</html>

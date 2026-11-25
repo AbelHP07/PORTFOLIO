@@ -1,0 +1,25 @@
+{
+  "empresa": {
+    "nombre": "Nombre de la empresa",
+    "direccion": "Dirección de la empresa",
+    "telefono": "900900900",
+    "nif": ""
+  },
+  "cliente": {
+    "nombre": "Nombre del cliente",
+    "direccion": "Dirección del cliente",
+    "telefono": "600600600",
+    "nif": "XXXXXXXXX"
+  },
+  "elementos": [
+    { "descripcion": "Producto 1", "cantidad": 2, "precio": 2 },
+    { "descripcion": "Producto 2", "cantidad": 3, "precio": 3 },
+    { "descripcion": "Producto 3", "cantidad": 1, "precio": 1 }
+  ],
+  "informacion": {
+    "baseImponible": 0,
+    "iva": 16,
+    "total": 0,
+    "formaPago": "contado"
+  }
+}

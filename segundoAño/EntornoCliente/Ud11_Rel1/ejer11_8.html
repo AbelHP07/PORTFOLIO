@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer11_8.html</title>
+</head>
+<body>
+    <script>
+        for (var i = 2; i <= 9; i++) {
+            var p = document.createElement("p");
+            p.textContent = "hola #" + (i - 1); // texto, seguido del tamaño
+            p.style.fontSize = (i * 10) + "px"; // tamaño en píxeles
+            p.style.fontWeight = "bold"; // letra en negrita
+            document.body.appendChild(p); // metemos el párrafo al body
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer10_3.html</title>
+</head>
+<body>
+
+    <label for="fruta">Nombre de la fruta:</label><br>
+    <input type="text" id="fruta"><br><br>
+
+    <label for="kilos">Número de kilos:</label><br>
+    <input type="text" id="kilos"><br><br>
+
+    <button onclick="calcular()">Calcular precio</button><br><br>
+
+    <!-- contenedor donde mostramos el resultado -->
+    <div id="resultado"></div>
+
+    <script>
+        // array
+        let frutas = { 'Plátano': 1.35, 'Manzana': 0.8, 'Pera': 0.85, 'Naranja': 0.7 };
+
+        function calcular() {
+            let nombreFruta = document.getElementById("fruta").value.trim();
+            let kilosStr = document.getElementById("kilos").value.trim();
+            let contenedor = document.getElementById("resultado");
+
+            // comprobamos que los campos no estén vacíos
+            if (nombreFruta === "" || kilosStr === "") {
+                contenedor.innerHTML = "Por favor, introduce la fruta y los kilos.";
+                return;
+            }
+
+            let kilos = parseFloat(kilosStr);
+
+            // comprobamos que los kilos sean un número válido mayor que 0
+            if (isNaN(kilos) || kilos <= 0) {
+                contenedor.innerHTML = "El número de kilos no es válido.";
+                return;
+            }
+
+            // comprobamos si la fruta existe dentro del objeto
+            if (frutas[nombreFruta] !== undefined) {
+                let precioTotal = kilos * frutas[nombreFruta];
+                contenedor.innerHTML = kilos + " kilos de " + nombreFruta + " valen " + precioTotal + "€";
+            } else {
+                contenedor.innerHTML = "Lo siento, la fruta '" + nombreFruta + "' no existe.";
+            }
+        }
+    </script>
+
+</body>
+</html>
