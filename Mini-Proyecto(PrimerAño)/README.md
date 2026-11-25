@@ -16,7 +16,7 @@ La página busca ser simple, clara y accesible, para que cualquier usuario pueda
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🎯 Objetivos del proyecto
+## 🎯 Objetivos del proyecto
 
 Crear una web funcional para una ONG ficticia.
 
@@ -37,7 +37,7 @@ Permitir donaciones de:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛠️ Tecnologías utilizadas
+## 🛠️ Tecnologías utilizadas
 
 - HTML → Estructura de la web
 
@@ -51,15 +51,15 @@ Permitir donaciones de:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-👥 Equipo de trabajo
+## 👥 Equipo de trabajo
 
-👨‍💻 Alumno 1: (Andrés Diaz Alfonso)
+👨‍💻 Alumno 1: (Andrés Díaz Alfonso)
 
-👨‍💻 Alumno 2: (Abel Hernandez Pereira)
+👨‍💻 Alumno 2: (Abel Hernández Pereira)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🧩 Funcionalidades principales
+## 🧩 Funcionalidades principales
 
 - Página informativa sobre la ONG y su misión.
 
@@ -75,7 +75,7 @@ Permitir donaciones de:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🌱 Finalidad solidaria
+## 🌱 Finalidad solidaria
 
 Aunque se trata de un proyecto académico, la idea está basada en una problemática real:
 Ayudar a personas y comunidades de África que carecen de recursos básicos como alimentación, educación y productos esenciales.
