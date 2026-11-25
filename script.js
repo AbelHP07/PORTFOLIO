@@ -12,7 +12,7 @@ const links = [
   {
     title: "Primer año",
     desc: "Acceso directo a la carpeta primerAño",
-    url: `https://github.com/${usuario}/${repo}/tree/${rama}/primerAño/index.html`,
+    url: `https://github.com/${usuario}/${repo}/blob/${rama}/primerAño/index.html`,
     tag: "1.º AÑO"
   },
   {
