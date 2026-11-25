@@ -1,0 +1,14 @@
+body{
+    background-color: blue;
+}
+
+.texto{
+    font-size: 40px;
+    margin: 0;
+    color: aqua;
+    margin-bottom: 40px;
+}
+
+button{
+    margin-bottom: 20px;
+}
