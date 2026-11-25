@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Título de la página</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<script src="https://educacionadistancia.juntadeandalucia.es/centros/huelva/draftfile.php/11497/user/draft/715448901/cod_javascript1.js"></script>
+	<!--script>
+
+    //addEventListener('load',inicio,false);
+    function inicio()
+        {document.getElementById('temperatura').addEventListener('change',cambioTemperatura,false);}
+    function cambioTemperatura()
+        {document.getElementById('temp').innerHTML=document.getElementById('temperatura').value;}
+		
+	function popUp() {		
+		var cad = "";
+		cad += "Numero binario 8 dig:  " + document.getElementById('numerobin').value;
+		cad += "\nNumero decimal 5 dig:  " + document.getElementById('numerodec1').value;		
+		cad += "\nNumero decimal 1-6 dig:  " + document.getElementById('numerodec2').value;				
+		cad += "\nEmail usuario:  " + document.getElementById('emailusuario').value;
+		cad += "\nTemperatura:  " + document.getElementById('temperatura').value;
+		cad += "\nFecha inicio:  " + document.getElementById('fechainic').value;
+		cad += "\nHora inicio:  " + document.getElementById('time_control').value;		
+		cad += "\nFecha fin:  " + document.getElementById('fechafin').value;
+		cad += "\nColor:  " + document.getElementById('color1').value;
+		cad += "\nFicheros Upload:  " + document.getElementById('ficherosupload').value;		
+		cad += "\nValoracion form 1-5:  " + document.getElementById('valornum').value;
+		cad += "\nDireccion web:  " + document.getElementById('direccion1').value;
+		cad += "\nNavegador:  " + document.getElementById('navegador').value;
+
+		alert(cad);
+		}
+
+	function fechaYHoraActual() {	
+		var d = new Date();
+		var numMes = d.getMonth()+1;
+		var numDia = d.getDate();
+		
+		document.getElementById('time_control').value = d.getHours()+ ':' +d.getMinutes();			
+
+  //numDia=4;	
+		if (numDia>0 && numDia<10)
+			numDia = "0" +numDia;
+  //numMes=1;
+		if (numMes>0 && numMes<10)
+			numMes = "0" +numMes;
+		//document.getElementById('txtAnuncio').innerHTML = d.getFullYear() + '-' +numMes + '-' + numDia; 
+		document.getElementById('fechainic').value = d.getFullYear() + '-' +numMes + '-' + numDia; //numDia + '-' +numMes + '-' + d.getFullYear();
+
+		//document.getElementById('fechainic').value = d.getDate()+ '/' +numMes + '/' + d.getFullYear();
+		
+		//document.getElementById('fechaactual').value = d.getDate()+ '/' +numMes + '/' + d.getFullYear();  //d.getDate();		
+        //document.getElementById('fechah').innerHTML =  d.getDate()+ '/' +d.getMonth()+ '/' + d.getFullYear();  //'Dia de la semana: ' +d.getDay(),'<br>Mes (0 al 11): ‘+d.getMonth(),'<br>Año:’+d.getFullYear(),'<br>Hora:’+d.getHours(),'<br>HoraUTC: ‘+d.getUTCHours(),'<br>Minutos: ‘+d.getMinutes(),'<br>Segundos: ‘+d.getSeconds());
+		//document.getElementById('horaactual').value = d.getHours()+ ':' +d.getMinutes();
+        //document.getElementById('horah').innerHTML = d.getHours()+ ':' +d.getMinutes();		
+	}
+	
+    </script -->  
+
+	<style>  
+		.asterisco {
+			color:red;
+		}
+		
+		img {
+		  width: 100%;
+		  height: auto;
+		}
+	</style>
+
+	<script defer>
+		function actualizar_temp(){
+			document.getElementById("temp").textContent = document.getElementById("temperatura").value;
+		}
+
+		window.onload = actualizar_temp();
+	</script>
+
+</head>
+
+<body>
+    <!-- form action="#"   action="alert('Todo VALIDADO !!');" -->
+    <form action="http://assisted-checkouts.000webhostapp.com/procesacontacto202324.php" onSubmit="popUp();">	<!-- form action="http://www.w3schools.com" novalidate -->	
+        Número binario de 8 dígitos:
+        <input type="text" id="numerobin" required pattern="[01]{8}" autofocus placeholder="Sólo digitos 0 y/o 1 !!"><span class="asterisco">*</span>
+        <br/> 
+        Número decimal que contenga 5 dígitos:
+        <input type="text" id="numerodec1" required pattern="[0-9]{5}"><span class="asterisco">*</span>
+        <br/>
+        Número entero decimal que contenga entre 1 y 6 dígitos:
+        <input type="text" id="numerodec2" required pattern="[0-9]{1,6}"><span class="asterisco">*</span>      
+        <br/>
+		Email
+		<input type="email" id="emailusuario" required placeholder="Sólo email cn formato válido !!"><span class="asterisco">*</span>
+        <br/>
+		 
+		Teléfono: <input type="tel" name="tel_control" id="tel_control" placeholder="+XX123456789" pattern="+[0-9]{2}[6-7]{1}[0-9]{8}" required />
+        <br/>
+		
+		Seleccione una temperatura:
+        <input type="range" id="temperatura" min="0" max="100" onchange="actualizar_temp()">
+        <span id="temp">50</span>º
+        	
+		<p>Fecha inicial:
+        <input type="date" id="fechainic" name="fecha1" required><span class="asterisco">*</span>  
+			&nbsp;&nbsp;&nbsp; Hora: <input type="time" name="time_control" id="time_control" />  
+			&nbsp;&nbsp;&nbsp;<input type="button" value="Usar fecha y hora actual" onclick="fechaYHoraActual();">&nbsp;&nbsp;<span id="txtAnuncio"></span>
+        </p>
+        <p>Fecha final:
+        <input type="date" id="fechafin" name="fecha2" onkeydown="return false">
+        </p> 
+
+		<p>Seleccione un color:
+        <input type="color" id="color1" name="color1" required />
+        </p>
+		Archivos de imagen a subir (al menos 2 de tipo imagen JPG, GIF y/o PNG): 
+		<input type="file" id="ficherosupload" name="ficherosupload" accept="image/png, image/jpeg, image/gif" required multiple><span class="asterisco">*</span>
+        <br/>
+		<p>Ingrese un valor entre 1 y 5 para valorar este formulario:
+        <input type="number" id="valornum" name="valor" min="1" max="10" required><span class="asterisco">*</span>
+        </p>
+        <p>Dirección Web 1:
+        <input type="url" id="direccion1" name="direccion1" size="30" placeholder="Sólo URL con formato válido !!" required><span class="asterisco">*</span></p>
+
+        <p>Nombre de navegador que utiliza:
+        <input type="text" id="navegador" list="listanavegadores" placeholder="Seleccione una opcion ..." required> <!-- onkeydown="return false" required -->
+            <datalist id="listanavegadores">
+            <option label="Chrome" value="Chrome">
+            <option label="Firefox" value="Firefox">
+            <option label="Internet Explorer" value="Internet Explorer">
+            <option label="Microsoft Edge" value="Microsoft Edge">
+            <option label="Safari" value="Safari">          
+            </datalist>  
+		</p>
+
+		<!-- p>
+		<h4>Resultados de la búsqueda de la palabra ’anillo’</h4>
+			<ol>
+			<li>El señor de los <mark>anillo</mark>s...</li>
+			<li>el cliente compró este <mark>anillo</mark></li>
+			</ol>
+		</p -->
+		
+        <input type="submit" value="Enviar">&nbsp;&nbsp;<input type="reset" value="Borrar">
+    </form>
+</body>
+</html>
