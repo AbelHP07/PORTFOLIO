@@ -1,3 +1,11 @@
+NOTA**
+
+El proyecto se inicia en el archivo "index.php" situado, según la estructura de carpetas, en la ruta "pages/index.php".
+
+
+
+
+
 🌍 Proyecto ONG Solidaria – Donaciones para África
 📌 Descripción del proyecto
 
