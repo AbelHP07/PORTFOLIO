@@ -1,0 +1,317 @@
+<!--
+
+<<<< General >>>>
+
+BAT_GEN_1. Para recoger el valor de id de la URL  pagina.php?id=5  lo más adecuado sería usar:
+a) $_GETID["id"] 
+b) $_POST("id")
+c) $_GET("id")
+d) $_GET["id"]
+
+---------------- D
+
+
+BAT_GEN_2. La función predefinida de PHP array_pop($variable) …
+a) Borra el último elemento del array $variable y no devuelve nada.
+b) Devuelve el último elemento del array $variable antes de borrarlo de dicho array.
+c) Simplemente devuelve el último elemento del array $variable, sin modificar nada.
+d) Devuelve el primer elemento del array $variable antes de borrarlo de dicho array.
+
+---------------- B
+
+
+BAT_GEN_3. Si, estando dentro de una función local(...) de PHP, se desea aplicar unset(VARIABLE) a una variable global, ¿cuál de las siguientes irá en el lugar de VARIABLE para que unset consiga su propósito?
+a) $_GLOBALS, de modo que la variable en ámbito de la llamada a local(...) es destruida.
+b) $_ENV,  de modo que la variable en el ámbito de la llamada a local(...) es destruida.
+c) $_SERVER, de modo que sólo la variable local es destruida. La variable en el entorno de la llamada mantendrá el mismo valor anterior a la llamada a unset. 
+d) $_GLOBALS, de modo que sólo la variable local es destruida. La variable en el ámbito de la llamada a  local(...) mantendrá el mismo valor anterior a la llamada a  local(...).
+
+---------------- 
+
+
+BAT_GEN_4. ¿Qué opción es la correcta si queremos tener en un mismo archivo/página PHP un formulario HTML y su código PHP para validar los datos de dicho formulario? 
+a) <form action = “<?php echo string($_SERVER[“PHP_SELF”]); ?>” />
+b) <form action=“<?php echo htmlspecialchars($_SERVER[“PHP_SELF”]); ?>”/>
+c) <form action = “<?php echo xmlString($_SERVER[“PHP_SELF”]); ?>” />
+d) Ninguna es correcta. 
+
+---------------- B
+
+
+BAT_GEN_5. ¿Qué es cierto en relación a las sentencias include y require ?
+a) c) y d) son corectas. 
+b) require e include idénticos: producen errores leves y permiten que script continúe ejecutándose.
+c) Si el archivo incluido con require contiene errores, se produce un error fatal y el script se detiene.
+d) Si el archivo incluido con include produce un aviso o warning, y el script continúa ejecutándose.
+
+---------------- 
+
+
+
+<<<< Ficheros >>>>
+
+BAT_FICH_1. Para que el siguiente ejemplo de código fuente sea correcto, OBJETO debe sustituirse por:
+<!DOCTYPE html>
+<html><body>
+<?php
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+echo fread($myfile,filesize("webdictionary.txt"));
+fclose(OBJETO); ?>
+</body></html>
+
+a) "webdictiognary.txt"
+b) No lleva nada (sin parámetro/variable de entrada).
+c) Ninguna es correcta.
+d) $myfile  X
+
+
+BAT_FICH_2. Para que este código funcione correctamente, ¿ qué debemos poner en lugar de <A> y <B> ?
+
+<?php
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo(<A>,PATHINFO_EXTENSION));
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+}
+
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+
+// Check file size
+if ($_FILES["fileToUpload"][<B>] > 500000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
+}
+?>
+
+a) <A> : "size"  |  <B> : $target_file
+b) <A> : $target_file  |  <B> : "tmp_name"
+c) <A> : $target_dir  |  <B> : "size"
+d) <A> : $target_file  |  <B> : "size"    X
+
+
+
+<<<< Cookies >>>>
+
+BAT_COOK_1. Si en una página PHP pag1.php creamos una variable $nombre y le asignamos un valor, ¿qué deberíamos hacer para poder recuperar 
+               dicho valor en otra página distinta pag2.php?
+a) En pag1.php haremos, por ejemplo, $_SERVER(“nombre”)=”Pepe” y en pag2.php accedemos al valor mediante $nombre .
+b) Nada especial. Tan solo declarar el mismo identificador de esa variable en pag2.php y así recuperamos directamente el valor.  
+c) $_SESSION[“nombre”] . 
+d) c) es correcta. Además, basta con usar $_SESSION[“nombre”] en pag2.php para acceder al valor. 
+
+
+BAT_COOK_2. Para modificar el valor de una cookie $name en PHP usamos:
+a) la función  modifycookie($name, $new_value, $domain, $secure, $httponly)
+b) de nuevo la función  setcookie($name, $new_value, $domain, $secure, $httponly)
+c) No es posible. 
+d) Ninguna es correcta. 
+
+
+BAT_COOK_3. Para acceder en PHP a cualquiera de las cookies que creamos en un sitio web usamos:
+a) La variable $_COOKIE.
+b) $nombre_variable_cookie. 
+c) La variable $COOKIE.
+d) Ninguna es correcta. 
+
+
+
+<<<< Sesiones, Login, Seguridad, ... >>>>
+
+BAT_SESS_1. Para eliminar todas las variables de sesión:
+a) Basta con asignarles a cada una el valor "".
+b) Usamoos la función  session_destroy().
+c) Usamos la función  session_unset().
+d) Todas son válidas. 
+
+
+BAT_SESS_2. Si queremos hacer un cierre automático de sesión tras pasar un tiempo $tMaxInactividad sin actividad HTTP en un sitio web, comprobaremos que ...
+a) $_SESSION["horaUltimaActividad"]-time() > tMaxInactividad;
+b) time()-$_SESSION["horaUltimaActividad"] > tMaxInactividad;
+c) No es posible. 
+d) Ninguna es correcta. 
+
+
+BAT_SESS_3. ¿Cuál es la mejor forma para evitar que un usuario acceda a páginas PHP que requieran hacer login previamente?
+a) Utilizando una variable de sesión que compruebe si el usuario ha hecho login en esa sesión o No. En caso negativo, se le redirecciona a la página de validación de login.    
+b) Poniendo un captcha muy difícil. Así, si consigue pasarlo es que se merece iniciar sesión directamente sin password.
+c) Utilizando una variable global cualquiera que compruebe si algún otro usuario ha hecho login antes. En caso positivo, se le redirecciona a la página de bienvenida del nuevo usuario logueado.
+d)  Ninguna es correcta.
+
+
+BAT_SESS_4. Para explícitamente destruir una sesión:
+a) Basta con asignar a cada variable de sesión el valor "" .
+b) Ninguna de las anteriores es corecta. 
+c) Usamos la función  session_destructor() .
+d) Usamos la función  session_unset() .
+
+
+<<<< Filtros >>>>
+
+BAT_FILT_1. ¿Por qué es recomendable usar filtros en las apps escritas en PHP?
+a) Para asegurarse de que obtienen los datos de entrada de forma correcta.
+b) a) y c) son corectas. 
+c) Para evitar problemas seguridad en las páginas del sitio web PHP. 
+d) Ninguna es correcta. 
+
+---------------- B
+
+<<<< BBDD >>>>
+
+
+BAT_BBDD_1. ¿Qué hace el siguiente código de PHP?   mysqli_connect('localhost', 'db_pepe', '', 'aMjDb_wqa') 
+a) Lanza un mensaje de error.
+b) Crea una conexión con una BBDD llamada db_pepe  mediante el usuario anónimo y password  aMjDb_wqa.
+c) Ninguna es correcta. 
+d) Crea una conexión con una BBDD mediante el usuario  db_pepe  y sin password. 
+
+---------------- D
+
+BAT_BBDD_2. El siguiente código PHP conecta con una BBDD MySQLi (en modo POO) y ¿qué más hace?
+
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// ...
+$stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $firstname, $lastname, $email);
+
+// ...
+$firstname = "John";
+$lastname = "Doe";
+$email = "john@example.com";
+$stmt->execute();
+
+$firstname = "Mary";
+$lastname = "Moe";
+$email = "mary@example.com";
+$stmt->execute();
+
+$firstname = "Julie";
+$lastname = "Dooley";
+$email = "julie@example.com";
+$stmt->execute();
+echo "New records created successfully";
+
+$stmt->close();
+$conn->close();
+?>
+
+  a) Inserta varios registros en una tabla.
+  b) Los valores de los campos vienen dados como parámetros.
+  c) Todas son corectas.    
+  d) Al servidor sólo se envian los parámetros enlazados cada vez (no toda la consulta), lo que minimiza el ancho de banda necesario 
+     para interactuar con dicho servidor.
+
+
+BAT_BBDD_3. El siguiente código PHP conecta con una BBDD MySQLi (en modo procedural) mediante funciones específicas, para hacer una consulta SQL y mostrar registros de una tabla. Para que funcione, ¿por qué código debemos sustituir [ A ] [ B ] y [ C ] ?
+<?php
+/* Database credentials. Assuming you are running MySQL server with default               setting (user 'root' with no password) */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'demo');
+
+/* Attempt to connect to MySQL database */
+$link = [ A ](DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
+// Check connection
+if($link === false){
+	die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+else {
+       // Attempt select query execution
+       $sql = "SELECT * FROM employees";
+
+      if($result = mysqli_query($link, $sql)){
+
+           if( [ B ] > 0){
+                echo '<table class="table table-bordered table-striped">';
+                echo "<thead>";
+                 echo "<tr>";
+                 echo "<th>#</th>"; echo "<th>Name</th>";  echo "<th>Address</th>";
+                 echo "<th>Salary</th>";  echo "<th>Action</th>";
+
+                
+   echo "</tr>";
+                 echo "</thead>";
+                 echo "<tbody>";
+
+                 while($row = [ C ] ){
+                      echo "<tr>";
+                      echo "<td>" . $row['id'] . "</td>";
+                      echo "<td>" . $row['name'] . "</td>";
+                      echo "<td>" . $row['address'] . "</td>";
+                      echo "<td>" . $row['salary'] . "</td>";
+                      echo "<td>";
+                  echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                    echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                   echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                        echo "</td>";
+                        echo "</tr>";
+                  }
+                  echo "</tbody>";                            
+                  echo "</table>";
+                  // Free result set
+                      mysqli_free_result($result);
+                   } else{
+               echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                        }
+           } else{
+                  echo "Oops! Something went wrong. Please try again later.";
+           }
+}	
+// Close connection
+mysqli_close($link);
+?>
+
+a) [ A ]: new mysqli  |  [ B ]: mysqli_num_rows($result)  |  [ C ]: mysqli_fetch_array($result)
+b) [ A ]: mysqli_connect  |  [ B ]: mysqli_num_rows($sql)  |  [ C ]: mysqli_fetch_string($result)
+c) [ A ]: mysqli_connect  |  [ B ]: mysqli_num_rows($result)  |  [ C ]: mysqli_fetch_array($result)                                                                                         .
+d) Ninguna es correcta.
+
+-->

@@ -1,0 +1,23 @@
+ACTIVIDAD DE CLASE PARA EVALUACION INICIAL (17-18Sept)
+======================================================
+
+Usando el formulario con validación en php del ejemplo de https://www.w3schools.com/php/php_form_complete.asp y 
+https://tryphp.w3schools.com/showphp.php?filename=demo_form_validation_complete, realizar lo siguiente …
+
+
+A) añadir un campo de TELEFONO. Usando expresiones regulares, debe validarse el cumplimento de dicho dato con un patrón de validación, que será  +34 xyyyyyyyy ,
+donde:
+ y debe ser una cifra cualquiera entre 0 y 9 
+ x debe ser una cifra cualquiera entre 6 y 7
+
+
+B) Modificaciones: Permitir que se pueda modificar el prefijo, de modo que cada numero pueda ser una cifra cualquiera entre 0 y 9.
+
+
+C) Nuevas validaciones: Añadir un checkbox por cada una de las categorías de Empleados de una empresa (Operario, Jefe Dpto., Director), que permita seleccionarlo(s). Restricciones de validación:
+	-Obligatorio elegir al menos uno
+	-Posibilidad de marcar 2
+	-Si elijo Director no puedo elegir ningún otro
+
+
+
