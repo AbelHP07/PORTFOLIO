@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_24.html</title>
+</head>
+<body>
+    <h3>Selecciona tus estudios:</h3>
+    <input type="radio" name="estudios" id="e1"> Sin estudios<br>
+    <input type="radio" name="estudios" id="e2"> Primaria<br>
+    <input type="radio" name="estudios" id="e3"> Secundaria<br>
+    <input type="radio" name="estudios" id="e4"> Universidad<br><br>
+
+    <button onclick="comprobar()">Comprobar</button>
+
+    <script>
+        function comprobar() {
+            if (document.getElementById("e1").checked) {
+                alert("Has seleccionado: Sin estudios");
+            } else if (document.getElementById("e2").checked) {
+                alert("Has seleccionado: Primaria");
+            } else if (document.getElementById("e3").checked) {
+                alert("Has seleccionado: Secundaria");
+            } else if (document.getElementById("e4").checked) {
+                alert("Has seleccionado: Universidad");
+            } else {
+                alert("No has seleccionado nada");
+            }
+        }
+    </script>
+</body>
+</html>

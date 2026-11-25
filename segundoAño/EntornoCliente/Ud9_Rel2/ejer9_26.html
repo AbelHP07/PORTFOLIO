@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_26.html</title>
+</head>
+<body>
+    Introduce el numero de dias: 
+    <input type="text" id="dias"> 
+    <button onclick="modificarFecha()">Modificar fecha</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularFecha(numDias) {
+            var fecha = new Date();
+            fecha.setDate(fecha.getDate() + parseInt(numDias));
+            return fecha.toLocaleDateString();
+        }
+
+        function modificarFecha() {
+            var d = document.getElementById("dias").value;
+            var resultado = calcularFecha(d);
+            document.getElementById("resultado").innerText = "Fecha resultante: " + resultado;
+        }
+    </script>
+</body>
+</html>

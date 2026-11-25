@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_14.html</title>
+</head>
+<body>
+    <script>
+        var fechaTexto = prompt("Introduce tu fecha de nacimiento (AAAA-MM-DD):", "2004-07-03");
+        var fecha = new Date(fechaTexto);
+
+        var dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        var diaNacimiento = dias[fecha.getDay()];
+        var anio = fecha.getFullYear();
+        var mes = fecha.getMonth();
+
+        document.write("Nacio un " + diaNacimiento + ".<br><br>");
+        document.write("Aqui tiene el calendario de ese mes.<br><br>");
+        document.write("Mes de " + meses[mes] + "<br>");
+
+        document.write("<table>");
+        document.write('<tr>',
+            '<th>L</th>',
+            '<th>M</th>',
+            '<th>X</th>',
+            '<th>J</th>',
+            '<th>V</th>',
+            '<th>S</th>',
+            '<th>D</th>',
+            '</tr>');
+
+        // tomamos el día de la semana al que corresponde el primer día del mes
+        var primerDiaMes = new Date(anio, mes, 1).getDay();
+
+        // tomamos el número de espacios vacíos que va a tener
+        // el comienzo de la tabla, tomando como referencia que el día 0 es domingo
+        // por lo que lo cambiamos para que sea el día 6 (el último)
+        var espaciosVacios = primerDiaMes === 0 ? 6 : primerDiaMes - 1;
+
+        // tomamos el mes siguiente al que se introduzca, y
+        // tomamos el día 0, porque así se interpreta como el último día del mes anterior
+        var totalDias = new Date(anio, mes + 1, 0).getDate();
+
+        document.write("<tr>");
+        for (var i = 0; i < espaciosVacios; i++) {
+            document.write("<td></td>");
+        }
+
+        // así escribimos la primera línea, de forma que nos quedamos con el día actual
+        var diaActual = 1;
+        for (var i = espaciosVacios; i < 7; i++) {
+            document.write("<td>" + diaActual + "</td>");
+            diaActual++;
+        }
+        document.write("</tr>");
+
+        // mientras que el día actual no supere al número total de días con los que cuenta el mes
+        // seguimos escribiendo filas de números
+        while (diaActual <= totalDias) {
+            document.write("<tr>");
+            for (var i = 0; i < 7; i++) {
+
+                // en caso de haber sobrepasado el último día del mes, escribimos
+                //  celdas vacías en la tabla hasta finalizar el bucle
+                if (diaActual <= totalDias) {
+                    document.write("<td>" + diaActual + "</td>");
+                    diaActual++;
+                } else {
+                    document.write("<td></td>");
+                }
+            }
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+    </script>
+</body>
+</html>

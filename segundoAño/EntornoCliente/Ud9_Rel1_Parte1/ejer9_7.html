@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_7.html</title>
+</head>
+<body>
+    <h2 align="center">ESTA PAGINA CREA UNA VENTANA CON UN INDICE A DIVERSOS EJERCICIOS</h2>
+    <h3 align="center">LOS EJEMPLOS SE CARGARAN EN ESTA VENTANA</h3>
+
+    <script>
+        // esto hace que cuando se abran los enlaces de ejer9_7b.html, se habrán aquí (en esta ventana)
+        window.name = "padre";
+
+        // abrimos ventana
+        function abrirVentanaHija() {
+            window.open("ejer9_7b.html", "ventanaHija", "width=250,height=300");
+        }
+
+        window.onload(abrirVentanaHija()) // hacemos que cuando se cargue la página se ejecute la función para crear la ventana
+    </script>
+</body>
+</html>

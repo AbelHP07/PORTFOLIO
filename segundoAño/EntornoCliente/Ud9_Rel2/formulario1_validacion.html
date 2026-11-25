@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario1_validacion.html</title>
+    <style>
+        body {
+            font-size: 14px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="miFormulario">
+        <label>Nombre:</label>
+        <input type="text" id="nombre"><br><br>
+
+        <label>Edad:</label>
+        <input type="text" id="edad"><br><br>
+
+        <label>Correo electrónico:</label>
+        <input type="text" id="email"><br><br>
+
+        <label>Fecha:</label>
+        <input type="date" id="fecha"><br><br>
+
+        <label>Selecciona una opción:</label>
+        <select id="opcion">
+            <option value="">Valor por defecto</option>
+            <option value="1">Opción 1</option>
+            <option value="2">Opción 2</option>
+        </select><br><br>
+
+        <label>Un checkbox:</label>
+        <input type="checkbox" id="check"> Haz clic en mí<br><br>
+
+        <label>Selecciona una opción:</label><br>
+        <input type="radio" name="grupoRadio" value="1"> Un botón<br>
+        <input type="radio" name="grupoRadio" value="2"> Otro botón<br>
+        <input type="radio" name="grupoRadio" value="3"> Mas botones<br><br>
+
+
+        <input type="button" value="Submit" id="btnEnviar">
+    </form>
+
+    <script>
+        // escuchamos el evento click en el boton de envio del formulario
+        document.getElementById("btnEnviar").addEventListener("click", function() {
+            let txtNombre = document.getElementById("nombre");
+            let txtEdad = document.getElementById("edad");
+            let txtEmail = document.getElementById("email");
+            let txtFecha = document.getElementById("fecha");
+
+            // expresiones regulares para validar los campos introducidos
+            let regExpVacio = /\S/;                       // comprueba que no este vacio ni lleno solo de espacios en blanco
+            let regExpSinNumeros = /^[^\d]+$/;           // comprueba que el texto introducido no contenga numeros
+            let regExpSoloNumeros = /^\d+$/;             // comprueba que el campo contenga unicamente digitos numericos
+            let regExpEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // comprueba el formato basico de correo electronico
+
+            // validacion completa para el campo nombre
+            if (!regExpVacio.test(txtNombre.value)) {
+                alert("El campo nombre no puede estar vacío.");
+                txtNombre.focus();
+                return;
+            }
+            if (!regExpSinNumeros.test(txtNombre.value)) {
+                alert("El nombre no puede contener números.");
+                txtNombre.focus();
+                return;
+            }
+
+            // validacion completa para el campo edad
+            if (!regExpVacio.test(txtEdad.value)) {
+                alert("El campo edad no puede estar vacío.");
+                txtEdad.focus();
+                return;
+            }
+            if (!regExpSoloNumeros.test(txtEdad.value)) {
+                alert("La edad debe contener únicamente números.");
+                txtEdad.focus();
+                return;
+            }
+
+            // validacion completa para el correo electronico
+            if (!regExpVacio.test(txtEmail.value)) {
+                alert("El correo electrónico no puede estar vacío.");
+                txtEmail.focus();
+                return;
+            }
+            if (!regExpEmail.test(txtEmail.value)) {
+                alert("El formato del correo electrónico no es válido.");
+                txtEmail.focus();
+                return;
+            }
+
+            // validacion para el campo fecha
+            if (!regExpVacio.test(txtFecha.value)) {
+                alert("Por favor, selecciona una fecha.");
+                txtFecha.focus();
+                return;
+            }
+
+            // si todas las comprobaciones son correctas se envia el formulario usando submit
+            document.getElementById("miFormulario").submit();
+        });
+    </script>
+
+</body>
+</html>

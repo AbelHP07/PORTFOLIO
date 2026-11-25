@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer8_3.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1.titulo{
+            background-color: rgb(165, 230, 251);
+            color: darkblue;
+            text-align: center;
+            width: 600px;
+            cursor: default;
+        }
+        .texto{
+            color: red;
+        }
+        .medidas td:not(.texto){
+            background: rgb(140, 226, 255);
+        }
+        table{
+            cursor: default;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo">Conversiones de Longitud</h1>
+    <form action="" id="formulario" method="post">
+        <table border="2">
+            <tr>
+                <th colspan="9" style="padding-bottom: 20px; font-size: 25px;" class="texto"><span>Equivalentes de Longitud</span></th>
+            </tr>
+            <tr>
+                <th colspan="9" align="start" style="padding-right: 20px;">
+                    <span class="texto">Primero., escriba la cantidad a convertir aquí: </span>
+                    <input type="text" id="cantidadAConvertir"><br>
+                    <span class="texto">Luego, haga su elección en los botones radiales:</span>
+                </th>
+            </tr>
+            <tr class="medidas">
+                <td rowspan="2" class="texto">De:</td>
+                <td>Centimetros</td>
+                <td>Pulgadas</td>
+                <td>Pies</td>
+                <td>Yardas</td>
+                <td>Metros</td>
+                <td>Cadenas</td>
+                <td>Kilometros</td>
+                <td>Millas</td>
+            </tr>
+            <tr class="medidas" align="center">
+                <td><input type="radio" name="medidaDe" value="cm"></td>
+                <td><input type="radio" name="medidaDe" value="pulgadas"></td>
+                <td><input type="radio" name="medidaDe" value="pies"></td>
+                <td><input type="radio" name="medidaDe" value="yardas"></td>
+                <td><input type="radio" name="medidaDe" value="m"></td>
+                <td><input type="radio" name="medidaDe" value="cadenas"></td>
+                <td><input type="radio" name="medidaDe" value="km"></td>
+                <td><input type="radio" name="medidaDe" value="millas"></td>
+            </tr>
+            <tr class="medidas">
+                <td rowspan="2" class="texto">A:</td>
+                <td>Centimetros</td>
+                <td>Pulgadas</td>
+                <td>Pies</td>
+                <td>Yardas</td>
+                <td>Metros</td>
+                <td>Cadenas</td>
+                <td>Kilometros</td>
+                <td>Millas</td>
+            </tr>
+            <tr class="medidas" align="center">
+                <td><input type="radio" name="medidaA" value="cm"></td>
+                <td><input type="radio" name="medidaA" value="pulgadas"></td>
+                <td><input type="radio" name="medidaA" value="pies"></td>
+                <td><input type="radio" name="medidaA" value="yardas"></td>
+                <td><input type="radio" name="medidaA" value="m"></td>
+                <td><input type="radio" name="medidaA" value="cadenas"></td>
+                <td><input type="radio" name="medidaA" value="km"></td>
+                <td><input type="radio" name="medidaA" value="millas"></td>
+            </tr>
+            <tr>
+                <td colspan="9" align="center">
+                    <button type="button" id="convertir">Haga click para convertir</button>
+                    <button type="button" id="reiniciar">Reiniciar</button><br>
+                    <input type="text" name="resultado" style="width: 300px;" readonly>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        const formulario = document.getElementById('formulario');
+        const convertir = document.getElementById('convertir');
+        const reiniciar = document.getElementById('reiniciar');
+        let cantidadAConvertir = document.getElementById('cantidadAConvertir');
+
+        convertir.addEventListener('click', () => {
+            if(cantidadAConvertir.value == '' || isNaN(cantidadAConvertir.value)){
+                alert('Formato incorrecto');
+                cantidadAConvertir.focus();
+            }else{
+                if(formulario.medidaDe.value == ''){
+                    alert('Por favor, seleccione la medida de entrada');
+                }else if(formulario.medidaA.value == ''){
+                    alert('Por favor, seleccione la medida de salida');
+                }else{
+                    let cantidad = parseFloat(cantidadAConvertir.value);
+
+                    switch(formulario.medidaDe.value){
+                        case 'cm':
+                            cantidad = cantidad / 100;
+                            break;
+                        case 'pulgadas':
+                            cantidad = cantidad * 0.0254;
+                            break;
+                        case 'pies':
+                            cantidad = cantidad * 0.3048;
+                            break;
+                        case 'yardas':
+                            cantidad = cantidad * 0.9144;
+                            break;
+                        case 'm':
+                            cantidad = cantidad;
+                            break;
+                        case 'cadenas':
+                            cantidad = cantidad * 20.1168;
+                            break;
+                        case 'km':
+                            cantidad = cantidad * 1000;
+                            break;
+                        case 'millas':
+                            cantidad = cantidad * 1609.344;
+                            break;
+                    }
+
+                    switch(formulario.medidaA.value){
+                        case 'cm':
+                            cantidad = cantidad * 100;
+                            break;
+                        case 'pulgadas':
+                            cantidad = cantidad / 0.0254;
+                            break;
+                        case 'pies':
+                            cantidad = cantidad / 0.3048;
+                            break;
+                        case 'yardas':
+                            cantidad = cantidad / 0.9144;
+                            break;
+                        case 'm':
+                            cantidad = cantidad;
+                            break;
+                        case 'cadenas':
+                            cantidad = cantidad / 20.1168;
+                            break;
+                        case 'km':
+                            cantidad = cantidad / 1000;
+                            break;
+                        case 'millas':
+                            cantidad = cantidad / 1609.344;
+                            break;
+                    }
+
+                    formulario.resultado.value = cantidad;
+                }
+            }
+        });
+
+        reiniciar.addEventListener('click', () => {
+            formulario.reset();
+        });
+    </script>
+</body>
+</html>

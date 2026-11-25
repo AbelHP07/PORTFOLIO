@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_35.html</title>
+</head>
+<body>
+    <script>
+        var telefono = prompt("Introduce un número de teléfono:", "123456789");
+        var patron = /^\d{9}$/;
+
+        if (patron.test(telefono)) {
+            document.write("El teléfono " + telefono + " es correcto (tiene exactamente 9 dígitos).");
+        } else {
+            document.write("El teléfono no es válido. Debe introducir exactamente nueve números.");
+        }
+    </script>
+</body>
+</html>

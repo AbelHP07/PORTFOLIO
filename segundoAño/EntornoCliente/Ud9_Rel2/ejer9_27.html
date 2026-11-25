@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_27.html</title>
+</head>
+<body>
+    <p>Codigo que va a una web aleatoriamente</p>
+    <br>
+    
+    <script>
+        var paginas = [
+            "http://www.lawebdelprogramador.com/codigo/",
+            "https://www.google.com",
+            "https://es.wikipedia.org"
+        ];
+
+        var aleatorio = Math.floor(Math.random() * paginas.length);
+        var destino = paginas[aleatorio];
+
+        document.write("En 5 segundos, saltaremos a la pagina: " + destino);
+
+        setTimeout(function() {
+            window.location.href = destino;
+        }, 5000);
+    </script>
+</body>
+</html>

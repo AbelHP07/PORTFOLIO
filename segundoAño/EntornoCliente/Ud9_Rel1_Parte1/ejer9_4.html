@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_4.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        div:not(.botones){
+            text-align: start;
+            background-color: rgb(255, 255, 90);
+            width: fit-content;
+        }
+        input{
+            width: 80px;
+        }
+        button{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .botones{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>INTRODUCE EL ANCHO Y ALTO DE LA VENTANA</h3>
+
+    <div>
+        <form id="formulario">
+            <label>ANCHO VENTANA:</label>
+            <input type="number" name="ancho">
+
+            <br><br>
+
+            <label>ALTO VENTANA:</label>
+            <input type="number" name="alto">
+
+            <br><br>
+
+            <div class="botones">
+                <button type="button" onclick="crearVentana()">Crear Ventana</button>
+                <button type="button" onclick="cerrarVentana()">Cerrar Ventana</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let ventana;
+        const formulario = document.getElementById("formulario");
+
+        function crearVentana() {
+            let ancho = formulario.ancho.value;
+            let alto = formulario.alto.value;
+
+            ventana = window.open("", "nuevaVentana", "width=" + ancho + ",height=" + alto + ",toolbar=no,location=no,menubar=no,status=no");
+
+            ventana.document.write("ESTA ES LA VENTANA QUE SE HA CREADO");
+        }
+
+        function cerrarVentana() {
+            ventana.close();
+        }
+    </script>
+</body>
+</html>

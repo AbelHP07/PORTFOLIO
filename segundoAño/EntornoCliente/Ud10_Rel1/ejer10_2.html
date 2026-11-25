@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer10_2.html</title>
+</head>
+<body>
+
+    <label>Nombre:</label><br>
+    <input type="text" id="nombre"><br><br>
+
+    <label>Edad:</label><br>
+    <input type="text" id="edad"><br><br>
+
+    <button onclick="guardar()">Guardar</button>
+    <button onclick="limpiarVista()">Limpiar Vista</button>
+    <button onclick="borrarTodo()">Borrar todo</button>
+
+    <div id="resultado">No hay información</div>
+
+    <script>
+        // cargamos al iniciar
+        window.onload = mostrar;
+
+        function guardar() {
+            let n = document.getElementById("nombre").value;
+            let e = document.getElementById("edad").value;
+
+            if (n === "" || e === "") return;
+
+            // 1. obtenemos el array actual de sessionStorage o creamos uno vacío
+            let lista = JSON.parse(sessionStorage.getItem("personas")) || [];
+
+            // 2. añadimos un nuevo objeto al array
+            lista.push({ nombre: n, edad: e });
+
+            // 3. lo guardamos convertido a texto JSON
+            sessionStorage.setItem("personas", JSON.stringify(lista));
+
+            mostrar();
+        }
+
+        function mostrar() {
+            let datos = sessionStorage.getItem("personas");
+            let div = document.getElementById("resultado");
+
+            if (!datos) {
+                div.innerHTML = "No hay información";
+                return;
+            }
+
+            // convertimos texto JSON a objeto/array de JavaScript
+            let lista = JSON.parse(datos);
+            let html = "";
+
+            for (let i = 0; i < lista.length; i++) {
+                html += lista[i].nombre + " - " + lista[i].edad + "<br>";
+            }
+
+            div.innerHTML = html;
+        }
+
+        function limpiarVista() {
+            document.getElementById("resultado").innerHTML = "Vista limpia.";
+        }
+
+        function borrarTodo() {
+            sessionStorage.clear();
+            mostrar();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_30.html</title>
+</head>
+<body>
+    <script>
+        var fecha = prompt("Introduce una fecha (YYYY/MM/DD):", "2026/10/25");
+        var patron = /^(\d{4})\/(\d{2})\/(\d{2})$/;
+        var resultado = patron.exec(fecha);
+
+        if (resultado != null) {
+            alert("Año: " + resultado[1] + "\nMes: " + resultado[2] + "\nDía: " + resultado[3]);
+            document.write("La fecha " + fecha + " es válida.");
+        } else {
+            document.write("El formato de fecha no es válido. Debe ser YYYY/MM/DD.");
+        }
+    </script>
+</body>
+</html>

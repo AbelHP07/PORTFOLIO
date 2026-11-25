@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_11.html</title>
+</head>
+<body>
+
+    <h2>Calcular Edad</h2>
+
+    <input type="date" id="fechaNacimiento">
+    <button onclick="calcularEdad()">Calcular Edad</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularEdad() {
+            var fechaNac = new Date(document.getElementById("fechaNacimiento").value);
+            var hoy = new Date();
+
+            var edad = hoy.getFullYear() - fechaNac.getFullYear();
+            var mes = hoy.getMonth() - fechaNac.getMonth();
+
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad = edad - 1;
+            }
+
+            if (!isNaN(fechaNac.getTime()) && fechaNac <= hoy && document.getElementById("fechaNacimiento").value != "") {
+                if (edad == 0) {
+                    document.getElementById("resultado").textContent = "Ttienes menos de un año";
+                } else {
+                    document.getElementById("resultado").textContent = "Tienes " + edad + " años";
+                }
+            } else {
+                document.getElementById("resultado").textContent = "Por favor, introduce una fecha válida";
+            }
+        }
+    </script>
+
+</body>
+</html>

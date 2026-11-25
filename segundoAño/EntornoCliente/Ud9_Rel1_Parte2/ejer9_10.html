@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_10.html</title>
+</head>
+<body>
+
+    <h2>Comprobador de Palíndromos</h2>
+
+    <input type="text" id="palabra" placeholder="Escribe una palabra">
+    <button onclick="comprobar()">Comprobar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function comprobar() {
+            var texto = document.getElementById("palabra").value;
+
+            if(!texto){
+                document.getElementById("resultado").textContent = "No hay nada introducido";
+            }else{
+                var textoInvertido = texto.split("").reverse().join("");
+
+                if (texto.toLowerCase() === textoInvertido.toLowerCase()) {
+                    document.getElementById("resultado").textContent = "Es un palíndromo";
+                } else {
+                    document.getElementById("resultado").textContent = "No es un palíndromo.";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

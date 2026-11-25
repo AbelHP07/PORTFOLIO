@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer7_26.html</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        button {
+            height: 40px;
+            width: 120px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="boton"></button>
+
+    <script>
+        class Contador {
+            constructor(elemento) {
+                this.elemento = elemento;
+                this.contador = 0;
+                this.actualizarVista();
+                this.elemento.addEventListener('click', this);
+            }
+
+            handleEvent(event) {
+                if (event.type === 'click') {
+                    this.sumarContador();
+                }
+            }
+
+            sumarContador() {
+                this.contador++;
+                this.actualizarVista();
+            }
+
+            actualizarVista() {
+                this.elemento.textContent = this.contador;
+            }
+        }
+
+        const boton = document.getElementById('boton');
+        const contador = new Contador(boton);
+    </script>
+</body>
+</html>

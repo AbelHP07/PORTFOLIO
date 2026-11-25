@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_38.html</title>
+</head>
+<body>
+
+    <p>
+        <strong>Por favor, redacte aquí su mensaje </strong>
+        <span>Palabras escritas </span>
+        <input type="text" id="contador" size="1" value="0">
+    </p>
+
+    <!-- oninput hace que una función se ejecute cada vez que se modifica el campo -->
+    <textarea id="texto" rows="5" cols="40" oninput="contar()"></textarea>
+
+    <script>
+        function contar() {
+            let texto = document.getElementById("texto").value.trim();
+            let numeroPalabras = texto.split(" ").length;
+            document.getElementById("contador").value = numeroPalabras;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_13.html</title>
+</head>
+<body>
+
+    <h2>Contar Coincidencias en Array</h2>
+
+    <input type="text" id="textoBuscado" placeholder="Escribe un texto">
+    <button id="boton">Buscar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        Array.prototype.contarCoincidencias = function(texto) {
+            var contador = 0;
+            for (var i = 0; i < this.length; i++) {
+                if (this[i].toLowerCase() === texto.toLowerCase()) {
+                    contador++;
+                }
+            }
+            return contador;
+        };
+
+        var nombres = ["Freddie", "Mx", "Neo_JP", "Zarzamora", "Ramm", "Fael"];
+
+        document.getElementById('boton');
+
+        boton.addEventListener('click', () => {
+            var texto = document.getElementById("textoBuscado").value;
+            var cantidad = nombres.contarCoincidencias(texto);
+
+            document.getElementById("resultado").innerText = "El texto '" + texto + "' aparece " + cantidad + " veces";
+        });
+    </script>
+
+</body>
+</html>

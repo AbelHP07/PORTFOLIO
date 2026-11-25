@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_20.html</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="nom">Nombre: </label><input type="text" name="nombre" id="nom">
+        <label for="ed">Edad: </label><input type="number" name="edad" id="ed">
+    </form>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+
+        formulario.nombre.addEventListener('focus', () => {
+            formulario.nombre.value = '';
+        });
+
+        formulario.nombre.addEventListener('blur', () => {
+            if(formulario.nombre.value.trim() == ''){
+                alert('El campo nombre está vacío');
+            }
+        });
+
+        formulario.edad.addEventListener('focus', () => {
+            formulario.nombre.value = '';
+        });
+
+        formulario.edad.addEventListener('blur', () => {
+            if(formulario.edad.value.trim() == ''){
+                alert('El campo edad está vacío');
+            }
+        });
+    </script>
+</body>
+</html>

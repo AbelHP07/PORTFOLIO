@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_29.html</title>
+</head>
+<body>
+    <script>
+        var anio = prompt("Introduce un año: ", "2020");
+        var patron = /^(19\d{2}|20[0-2][0-6])$/;
+
+        if (patron.test(anio)) {
+            var num = parseInt(anio);
+            if (num > 2021) {
+                document.write("El año " + anio + " es superior a 2021");
+            } else {
+                document.write("El año " + anio + " está comprendido entre 1900 y 2021");
+            }
+        } else {
+            document.write("Se debe de introducir un valor comprendido entre 1900 y 2021");
+        }
+    </script>
+</body>
+</html>

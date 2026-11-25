@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_37.html</title>
+</head>
+<body>
+    <script>
+        let primeraCadena = new String("Esta cadena es un objeto string");
+        let segundaCadena = new String("y este trozo también");
+        let URL = new String(window.location.href);
+        let posicion = URL.lastIndexOf('/');
+        let nombreArchivo = URL.substring(posicion + 1);
+        let cursiva = new String("<em>Esto también es una cadena u objeto string.</em>");
+
+        document.write(primeraCadena.concat(', ',segundaCadena,"<br>"));
+
+        document.write(primeraCadena.concat(', <br><br>').bold());
+
+        document.write("De la URL podemos obtener el nombre del fichero: <br><br>");
+
+        document.write('URL completa (href)'+URL.bold()+'<br>');
+
+        document.write("Nombre del archivo: "+nombreArchivo.bold()+"<br>");
+
+        document.write("y mostrarlo en formas diferentes: "+nombreArchivo+', '
+        +nombreArchivo.fontcolor("red")+', '+nombreArchivo.fontcolor("green").fontsize("2")+'<br><br>');
+
+        document.write(cursiva);
+    </script>
+</body>
+</html>

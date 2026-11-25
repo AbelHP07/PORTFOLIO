@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_36.html</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Evita barras de rolido dobles en la página principal */
+        }
+        .contenedor-principal{
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+        .panel{
+            height: 100%;
+        }
+        .izq{
+            width: 20%;
+        }
+        .der{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+        .superior{
+            height: 30%;
+            display: flex;
+            align-items: center;
+        }
+        .lateral{
+            padding: 10px;
+        }
+        #titulo{
+            font-size: 60px;
+            font-weight: bold;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-principal">
+        <div class="panel lateral izq">
+            <p>Mamíferos</p>
+            <a href="#" onclick="cambiarFrames('mamifero/infoMamifero.html', 'mamifero/raton.html')">Ratón</a><br>
+            <a href="#" onclick="cambiarFrames('mamifero/infoMamifero.html', 'mamifero/elefante.html')">Elefante</a><br>
+
+            <p>Reptil</p>
+            <a href="#" onclick="cambiarFrames('reptil/infoReptil.html', 'reptil/cocodrilo.html')">Cocodrilo</a><br> <!-- Cambiar los enlaces y -->
+            <a href="#" onclick="cambiarFrames('reptil/infoReptil.html', 'reptil/lagarto.html')">Lagarto</a><br> <!-- poner los correctos (todos) -->
+
+            <p>Pez</p>
+            <a href="#" onclick="cambiarFrames('pez/infoPez.html', 'pez/tiburonBlanco.html')">Tiburón blanco</a>
+        </div>
+
+        <div class="panel-lateral der">
+            <div class="superior">
+                <iframe class="iframe-Superior" src="mamifero/infoMamifero.html" frameborder="1" name="superior"></iframe>
+            </div>
+
+            <div class="panel">
+                <iframe src="mamifero/elefante.html" frameborder="1" name="inferior"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function cambiarFrames(frameArriba, frameAbajo){
+            window.frames['superior'].location.href = frameArriba;
+
+            window.frames['inferior'].location.href = frameAbajo;
+        }
+    </script>
+</body>
+</html>

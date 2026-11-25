@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_19.html</title>
+</head>
+<body>
+    <form id="formulario">
+        <input type="checkbox" name="lenguaje" id="js"><label for="js">JavaScript</label><br>
+        <input type="checkbox" name="lenguaje" id="php"><label for="php">PHP</label><br>
+        <input type="checkbox" name="lenguaje" id="html"><label for="html">HTML</label><br>
+        <input type="checkbox" name="lenguaje" id="py"><label for="py">Python</label><br>
+
+        <button type="button" name="boton">Mostrar</button>
+    </form>
+
+    <p id="resultado"></p>
+    
+    <script>
+        const formulario = document.getElementById('formulario');
+        const boton = formulario.boton;
+
+        let opciones = document.querySelectorAll('input[name="lenguaje"]');
+
+        boton.addEventListener('click', () => {
+            let contador = 0;
+
+            for(let i = 0;i<opciones.length;i++){
+                if(opciones[i].checked){
+                    contador++;
+                }
+            }
+
+            document.getElementById('resultado').textContent = 'Contador: '+contador;
+        });
+    </script>
+</body>
+</html>

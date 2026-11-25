@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_33.html</title>
+</head>
+<body>
+    <script>
+        var texto = "Now is the time, this is the time";
+
+        // poniendo la bandera "g", cogemos todas las coincidencias
+        var patron = /time/g;
+        if(patron.test(texto)){
+            document.write("<em>time</em> se encuentra en el texto<br>");
+        }else{
+            document.write("<em>time</em> no se encuentra en el texto<br>");
+        }
+        var resultado = texto.replace(patron, "place");
+
+        document.write("Original: " + texto + "<br>");
+        document.write("Modificado: " + resultado);
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_17.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="formulario">
+        <label for="nom">Nombre: </label><input type="text" name="nombre" id="nom"><br><br>
+        <label for="ed">Edad: </label><input type="number" name="edad" id="ed"><br><br>
+        <button type="button" name="boton">Enviar</button>
+    </form>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+
+        const boton = formulario.boton;
+
+        boton.addEventListener('click', () => {
+            if(confirm('¿Seguro de enviar el formulario?')){
+                formulario.submit();
+            }
+        });
+    </script>
+</body>
+</html>

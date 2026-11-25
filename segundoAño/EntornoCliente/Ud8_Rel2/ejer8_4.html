@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer8_4.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sexo{
+            background-color: lightgray;
+        }
+        #edad{
+            width: 30px;
+        }
+        #dia{
+            width: 20px;
+        }
+        #anio{
+            width: 35px;
+        }
+        input[type='text'], input[type='password']{
+            width: 70px;
+        }
+        table{
+            margin-bottom: 20px;
+        }
+        .columnaVacia{
+            width: 300px;
+        }
+        form{
+            text-align: center;
+        }
+        form .tabla1{
+            display: flex;
+            justify-content: center;
+        }
+        form .fecha{
+            width: 600px;
+        }
+        form .tabla2{
+            display: flex;
+            justify-content: center;
+        }
+        td{
+            text-align: start;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" id="formulario">
+        <div class="tabla1">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label for="nombre">Nombre*: </label></td>
+                        <td><input type="text" name="nombre" id="nombre"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="apellidos">Apellidos*: </label></td>
+                        <td><input type="text" name="apellidos" id="apellidos"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="email">e-mail*: </label></td>
+                        <td><input type="text" name="email" id="email"></td>
+                    </tr>
+
+                    <!--startsWith() para que no empiece con "@"-->
+
+                    <tr>
+                        <td><label for="paginaWeb">Página web: </label></td>
+                        <td><input type="text" name="paginaWeb" id="paginaWeb"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="edad">Edad: </label></td>
+                        <td><input type="text" name="edad" id="edad">
+                        <label>Sexo: </label></td>
+                        <td>
+                            <span class="sexo"><input type="radio" name="sexo" id="hombre" value="hombre"></span>Hombre
+                            <span class="sexo"><input type="radio" name="sexo" id="mujer" value="mujer"></span>Mujer
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: rgb(243, 249, 255);" class="fecha">
+            <label>Fecha de nacimiento: </label>
+            <input type="text" name="dia" id="dia">de
+            <select name="mes" id="mes">
+                <option value="0"></option>
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+            de
+            <input type="text" name="anio" id="anio">
+        </div>
+        <div>
+            <table class="tabla2">
+                <tbody>
+                    <tr>
+                        <td><label for="nomUs">Nombre de usuario*: </label></td>
+                        <td class="columnaVacia"></td>
+                        <td><input type="text" name="nomUs"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="clave1">Introduce tu clave*: </label></td>
+                        <td class="columnaVacia"></td>
+                        <td><input type="password" name="clave1"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="clave2">Vuelve a introducir tu clave*: </label></td>
+                        <td class="columnaVacia"></td>
+                        <td><input type="password" name="clave2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" id="registrar">Registrar</button>
+        <button type="button" id="borrar">Borrar datos</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

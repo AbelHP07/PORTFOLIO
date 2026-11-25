@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer10_1.html</title>
+</head>
+<body>
+
+    <label for="producto">Nombre del producto:</label><br>
+    <input type="text" id="producto"><br><br>
+
+    <label for="precio">Precio:</label><br>
+    <input type="text" id="precio"><br><br>
+
+    <button onclick="guardarDato()">guardar</button><br><br>
+    <button onclick="limpiarVista()">Limpiar Vista</button><br><br>
+    <button onclick="borrarTodo()">Borrar todo</button><br><br>
+
+    <!-- aquí se mostrará la información con el innerHTML -->
+    <div id="resultado">No hay información almacenada</div>
+
+    <script>
+        // función para que se carguen los datos almacenados al abrir o actualizar la página
+        window.onload = function() {
+            mostrarDatos();
+        };
+
+        function guardarDato() {
+            let producto = document.getElementById("producto").value;
+            let precio = document.getElementById("precio").value;
+
+            // comprobamos que los campos no estén vacíos
+            if (producto === "" || precio === "") {
+                alert("Por favor, rellena ambos campos.");
+                return;
+            }
+
+            // guardar en el sessionStorage
+            sessionStorage.setItem(producto, precio);
+
+            // limpiamos los inputs
+            document.getElementById("producto").value = "";
+            document.getElementById("precio").value = "";
+
+            mostrarDatos();
+        }
+
+        function mostrarDatos() {
+            let contenedor = document.getElementById("resultado");
+            
+            if (sessionStorage.length === 0) {
+                contenedor.innerHTML = "No hay información almacenada";
+                return;
+            }
+
+            let texto = "";
+            // recorremos el sessionStorage para mostrar todos los elementos
+            for (let i = 0; i < sessionStorage.length; i++) {
+                let clave = sessionStorage.key(i);
+                let valor = sessionStorage.getItem(clave);
+                texto += clave + " - " + valor + "<br>";
+            }
+
+            contenedor.innerHTML = texto;
+        }
+
+        function limpiarVista() {
+            // se oculta/cambia el texto de la vista sin borrar el del sessionStorage
+            let contenedor = document.getElementById("resultado");
+            contenedor.innerHTML = "Limpiada vista. Los datos permanecen.";
+        }
+
+        function borrarTodo() {
+            // se borra todo el contenido del sessionStorage
+            sessionStorage.clear();
+            // se actualiza la vista
+            mostrarDatos();
+        }
+    </script>
+
+</body>
+</html>

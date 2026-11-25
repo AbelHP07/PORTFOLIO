@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_9.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <form name="formulario">
+        <p style="font-size: 20px;">ESCRIBE LA CANTIDAD A DESGLOSAR:
+        <input type="text" style="width: 70px;" name="cantidad"></p>
+
+        <div style="width: 100%; text-align: center;">
+            <button type="button" name="desglosar">Desglosar cantidad</button>
+        </div>
+    </form>
+
+    <script>
+        const formulario = document.formulario;
+        let cantidad = formulario.cantidad;
+        const desglosar = formulario.desglosar;
+        let ventana;
+
+        desglosar.addEventListener('click', () => {
+            if(cantidad.value.trim() == '' || isNaN(cantidad.value)){
+                alert('La cantidad está vacía o en un formato inválido');
+                cantidad.focus();
+            }else{
+                let numeros = [5000, 2000, 1000, 500, 200, 100, 50, 25, 10, 5, 1];
+                let resultados = [];
+                let cantidadInicial = Number(cantidad.value);
+                let resto = cantidadInicial;
+
+                for(let i = 0; i < numeros.length; i++){
+                    resultados[i] = Math.floor(resto / numeros[i]);
+                    resto = resto % numeros[i];
+                }
+
+                if(!ventana || ventana.closed){
+                    ventana = window.open('', 'Desglose de la cantidad',
+                    'width=400,height=500,left=600,top=300,toolbar=no,status=no,menubar=no,location=no');
+                }
+
+                                if(ventana){
+                    ventana.document.open();
+                    ventana.document.write(
+                    '<html><head>',
+                    '<style>',
+                    'body {',
+                        'text-align: center;',
+                    '}',
+                    'table {',
+                        'margin: 0 auto;',
+                    '}',
+                    'tr, td{',
+                        'text-align: center;',
+                    '}',
+                    '</style>',
+                    '</head><body>',
+                    '<table border="2"><tr><th>DESGLOSES DE LA CANTIDAD: '+cantidadInicial+'</th></tr></table>',
+                    '<table border="2">');
+
+                    for(let i = 0; i < numeros.length; i++){
+                        if(resultados[i] > 0){
+                            ventana.document.write('<tr>',
+                            '<td><strong><em>Unidades de '+numeros[i]+': '+resultados[i]+'</em></strong></td>',
+                            '</tr>');
+                        }else{
+                            ventana.document.write('<tr>',
+                            '<td>Unidades de '+numeros[i]+': '+resultados[i]+'</td>',
+                            '</tr>');
+                        }
+                    }
+
+                    ventana.document.write(
+                        '</table>',
+                        '<br>',
+                        '<button onclick="window.close()">Cerrar ventana</button>',
+                    '</body></html>');
+                    ventana.document.close();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

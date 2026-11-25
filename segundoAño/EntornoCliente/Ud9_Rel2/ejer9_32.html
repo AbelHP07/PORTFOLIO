@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer9_32.html</title>
+</head>
+<body>
+    <script>
+        var cadenas = [
+            "Joe's Cooking book",
+            "Sam's Cookbook",
+            "JavaScript cookBook",
+            "JavaScript bookcook"
+        ];
+
+        // el punto indica cualquier carácter y el asterisco permite que Cook aparezca 0 o más veces
+        // y la bandera "i" viene de ignore case, que ignora mayúsculas y minúsculas
+        // las banderas son como condicionantes para los patrones que usemos
+        // * = que aparezca 0 o más veces
+        var patron = /Cook.*Book/i;
+
+        for (var i = 0; i < cadenas.length; i++) {
+            if (patron.test(cadenas[i])) {
+                document.write("Coincide: " + cadenas[i] + "<br>");
+            } else {
+                document.write("No coincide: " + cadenas[i] + "<br>");
+            }
+        }
+    </script>
+</body>
+</html>

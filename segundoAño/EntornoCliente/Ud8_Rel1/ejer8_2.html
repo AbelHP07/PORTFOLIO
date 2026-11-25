@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer8_2.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #edad{
+            width: 60px;
+        }
+        #nombre{
+            width: 200px;
+        }
+        #fecha{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="formulario" method="POST">
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" name="nombre" id="nombre"></td>
+            </tr>
+            <tr>
+                <td>Edad:</td>
+                <td><input type="number" name="edad" id="edad"></td>
+            </tr>
+            <tr>
+                <td>Intereses:</td>
+                <td><select name="intereses" id="intereses">
+                    <option value="">Elegir</option>
+                    <option value="contacto_comercial">Contacto Comercial</option>
+                    <option value="atencion_al_cliente">Atención al cliente</option>
+                    <option value="contacto_de_proveedores">Contacto de proveedores</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Fecha</td>
+                <td><input type="text" name="fecha" id="fecha" placeholder="dd-mm-aaaa"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><button type="button" id="enviar">Enviar</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+        const enviar = document.getElementById('enviar');
+
+        const patronFecha = /^[0-9]{2}-[0-9]{2}-[0-9]{4}$/;
+        
+        enviar.addEventListener('click', () => {
+            if(formulario){
+                if(formulario.nombre.value.length <= 0 || formulario.nombre.value.trim() == ''){
+                    alert('Longitud del nombre corta');
+                    formulario.nombre.focus();
+                }else if(isNaN(formulario.edad.value) || formulario.edad.value < 18){
+                    alert('La edad es incorrecta (número mayor que 18)');
+                    formulario.edad.focus();
+                }else if(formulario.intereses.value == ''){
+                    alert('No se ha seleccionado ningún interés');
+                    formulario.intereses.focus();
+                }else if (formulario.fecha.value == '' || !patronFecha.test(formulario.fecha.value)){
+                    alert('No se tiene un formato de fecha correcto');
+                    formulario.fecha.focus();
+                }else{
+                    let fecha = formulario.fecha.value.split('-');
+                    let fechaBien = true;
+                    
+                    if(isNaN(fecha[0]) || isNaN(fecha[1]) ||isNaN(fecha[2])){
+                        fechaBien = false;
+                    }else if(fecha[0] < 1 || fecha[0] > 31){
+                        fechaBien = false;
+                    }else if(fecha[1] < 1 || fecha[1] > 12){
+                        fechaBien = false;
+                    }else if(fecha[2] < 1910 || fecha[2] > 2026){
+                        fechaBien = false;
+                    }
+
+                    if(!fechaBien){
+                        alert('No se tiene un formato de fecha correcto');
+                        formulario.fecha.focus();
+                    }else{
+                        alert('Formulario correcto');
+                        formulario.submit();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
