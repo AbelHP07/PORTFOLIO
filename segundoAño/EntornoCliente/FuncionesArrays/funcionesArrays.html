@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones de Arrays</title>
+</head>
+<body>
+    <script language="javascript">
+
+        let frutas = new Array();
+        frutas = ['Pera','Manzana','Melón','Sandía','Pátano'];
+
+
+        //     push()
+
+        //Añade un elemento al final de un array
+
+        document.write('1.');
+
+        document.write(`<p>Elementos del array sin push: ${frutas}</p>`);
+
+        let numeroFrutas = frutas.length;
+
+        document.write(`<p>Con longitud de: ${numeroFrutas}</p>`);
+
+        let numeroNuevoFrutas = frutas.push('Guayaba');
+
+        //Añadimos el elemento 'Guayaba' al final del array anteriormente creado (ahora habiendo 6 elementos en vez de los 5 iniciales)
+
+        document.write(`<p>Elementos del array con push: ${frutas}</p>`);
+
+        document.write(`<p>Con longitud nueva de: ${numeroNuevoFrutas}</p>`);
+
+        //Imprime por pantalla de número de elementos que hay en el array, ahora con 'Guayaba' incluida (6)
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     concat()
+
+        //Concatena 2 o más arrays
+
+        document.write('2.');
+
+        let verduras = ['Alcachofa', 'Remolacha','Lechuga'];
+
+        //Creamos un segundo array para poder explicar y usar la función
+
+        document.write(`<p>Comida saludable: ${frutas.concat(verduras)}</p>`);
+
+        //Concatenamos el array frutas con el array verduras, lo que provoca que sus elementos se organicen y escriban (gracias al document.write) juntos uno detrás de otro
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+
+        //     join()
+
+        //Devuelve una cadena de texto con los elementos de un array
+
+        document.write('3.');
+
+        document.write(`<p>Elementos separados por guiones: ${frutas.join("-")}</p>`);
+
+        //Esto hace que el array frutas se escriba con cada uno de sus elementos separados por guiones
+
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     reverse()
+
+        //Esto hace que el array se invierta sin crear un nuevo array
+
+        document.write('4.');
+
+        frutas.reverse();
+
+        //Esto hace que se invierta el orden del array frutas
+
+        document.write(`<p>Array inverso: ${frutas}</p>`);
+
+        //Se escribe para ver, como se ha hecho antes, que el array está invertido
+
+        //Lo voy a dejar como estaba para poder trabajar con el array
+
+        frutas.reverse();
+
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     unshift()
+
+        //Esto añade elemtnos al principio del array
+        
+        document.write('5.');
+
+        frutas.unshift('Coco');
+
+        //Así añadimos 'Coco' al principio del array frutas
+
+        document.write(`<p>${frutas}</p>`);
+
+        //Así imprimimos por pantalla un párrafo con el array frutas, que ahora tiene como primer elemento, 'Coco'
+
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     shift()
+
+        //Elimina el último elemento de un array y devuelve ese elemento
+
+        document.write('6.');
+
+        let primeroEliminado = frutas.shift();
+
+        //Así eliminamos el primer elemento, que sería 'Coco'
+
+        document.write(`<p>${primeroEliminado}</p>`);
+
+        //Mostramos por pantalla el elemento que hemos borrado (el primero, o sea, 'Coco')
+
+        document.write(`<p>${frutas}</p>`);
+
+        //Imprimimos por pantalla el array frutas sin el primer elemento ('Coco')
+
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     pop()
+
+        //Hace lo msimo que shift pero con el último elemento del array
+
+        document.write('7.');
+
+        let ultimoEliminado = frutas.pop();
+
+        //Borrando así el último elemento
+
+        document.write(`<p>${ultimoEliminado}</p>`);
+
+        //Mostramos el elemento eliminado (el último, 'Guayaba')
+
+        document.write(`<p>${frutas}</p>`);
+
+        //Mostramos el array, que ahora está sin 'Guayaba' (el último elemento)
+
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     slice()
+
+        //Obtenemos un nuevo array a partir de otro indicando el inicio y el final de lo que queremos coger (hay varias formas de usarse)
+
+        document.write('8.');
+
+        let arrayCeroTres = frutas.slice(0,3);
+
+        //Cogemos los elementos de las posiciones 0, 1, 2 puesto que la posición 3 es donde se termina el trozo cortado
+        
+        document.write(`<p>Desde la posición 0 a la 2: ${arrayCeroTres}</p>`);
+
+        //------
+
+        let arrayDosAdelante = frutas.slice(1);
+
+        //Cogemos los elementos de las posiciones 2, 3, 4, ... hasta el final del array (porque las posiciones debemos tener en cuenta que son -1 al tratarse de un array)
+        
+        document.write(`<p>Desde la posición 2 hasta el final del array: ${arrayDosAdelante}</p>`);
+
+        //------
+
+        let arrayCincoAtras = frutas.slice(-4); //No es -5 por las posiciones en los array
+
+        //Cogemos los elementos de las posiciones 1, 2, 3, 4, ya que no se invierte el orden, sino el sitio desde el que empezamos a contar (por lo que empezamos desde el 4 empezando por la izquierda)
+        
+        document.write(`<p>Desde la posición 4 hasta la 0 (inicio del array): ${arrayCincoAtras}</p>`);
+
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     sort()
+
+        //Ordena alfabéticamente un array (A-Z), aunque podemos añadirle nuevos criterios de búsqueda
+
+        document.write('9.');
+
+        frutas.sort();
+
+        //Ordenados alfabéticamente
+
+        document.write(`<p>${frutas}</p>`);
+
+        //Escribimos el array
+
+        //-------------
+
+        //Otras formas de ordenar:
+
+        //-------------
+
+        //Para números, restar a - b los ordena de menor a mayor. Al revés (b - a) los ordenaría de mayor a menor
+
+        //let numeros = [10, 5, 8, 1, 20];
+
+        //numeros.sort((a, b) => a - b);
+
+        //document.write(numeros); --> [1, 5, 8, 10, 20]
+
+        //-------------
+
+        //Al usar length como una función de los argumentos, se ordenan según la longitud de las palabras (de menor a mayor). Al revés (b.length - a.length), se ordenaría de mayor a menor
+
+        //let palabras = ['Plátano', 'Pera', 'Manzana'];
+
+        //palabras.sort((a, b) => a.length - b.length);
+
+        //console.log(palabras); --> ['Pera', 'Manzana', 'Plátano']
+
+
+        //------------------------------------------------
+        //------------------------------------------------
+
+        //     splice()
+
+        //Podemos añadir o quitar elementos de un array
+
+        //Tiene 3 parámetros: el primero es para la posición en la que queremos que se añada/elimine el elemento, el segundo indica cuántos elementos eliminaremos, y el tercero (el único opcional) son los nuevos elementos que añadiremos al array
+
+        document.write('10.');
+
+        frutas.splice(1, 0, 'Papaya');
+
+        //Añadimos así en la posición 2 (recuerda la posicón -1 que deben tener los arrays), la palabra 'Papaya'
+
+        document.write(`<p>${frutas}</p>`);
+
+
+    </script>
+</body>
+</html>

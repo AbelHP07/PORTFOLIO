@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dia1</title>
+    <style>
+        p{
+            background-color: yellow;
+            width: fit-content;
+            border-radius: 10px;
+            padding: 1px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="resultado1"><h2>Persona1</h2></div>
+    <div id="resultado2"><h2>Persona2</h2></div>
+
+    <script>
+        function Persona(nombre, edad, trabajo, sueldo){
+            this.nombre = nombre;
+            this.edad = edad;
+            this.trabajo = trabajo;
+            this.sueldo = sueldo;
+
+            this.mostrar = function(){
+                return `<ul>
+                        <li>${this.nombre}</li>
+                        <li>${this.edad}</li>
+                        <li>${this.trabajo}</li>
+                        <li>${this.sueldo}</li>
+                    </ul>`;
+            }
+
+            this.cambiarSueldo = function(cantidad){
+                this.sueldo += cantidad;
+            }
+        }
+
+        let persona1 = new Persona("Pepe", 18, "Pintor", 2000);
+
+        document.getElementById("resultado1").innerHTML += persona1.mostrar();
+
+        if(persona1.trabajo === "Carpintero"){
+            document.getElementById("resultado1").innerHTML += "<p>Ok</p>";
+        }else{
+            document.getElementById("resultado1").innerHTML += "<p>Not ok</p>";
+        }
+
+        persona1.cambiarSueldo(20);
+        persona1.mostrar();
+
+        let persona2 = new Persona("Juan", 20, "Carpintero", 1980);
+
+        document.getElementById("resultado2").innerHTML += persona2.mostrar();
+
+        if(persona2.trabajo === "Carpintero"){
+            document.getElementById("resultado2").innerHTML += "<p>Ok</p>";
+        }else{
+            document.getElementById("resultado2").innerHTML += "<p>Not ok</p>";
+        }
+
+        persona2.cambiarSueldo(20);
+        persona2.mostrar();
+    </script>
+</body>
+</html>
