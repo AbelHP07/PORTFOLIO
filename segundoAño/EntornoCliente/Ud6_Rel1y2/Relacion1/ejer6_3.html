@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer6_3.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table{
+            border: 3px groove lightgray;
+            font-size: 40px;
+        }
+        tr, td{
+            border: 4px groove lightgray;
+        }
+        .titulo{
+            background-color: aqua;
+            font-weight: bold;
+        }
+        .tabla2 tr,
+        .tabla2 td{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let numero = [];
+
+        for(let i = 0; i < 10; i++){
+            numero.push(prompt("Introduzca un número"));
+        }
+
+        //Poner un for para ahorrar líneas
+        //Poner validación de número
+
+        document.write(`
+            <table>
+                <tr class="titulo">
+                    <td>NUMEROS INTRODUCIDOS INICIALMENTE:</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td>${numero[0]}</td>
+                    <td>${numero[1]}</td>
+                    <td>${numero[2]}</td>
+                    <td>${numero[3]}</td>
+                    <td>${numero[4]}</td>
+                    <td>${numero[5]}</td>
+                    <td>${numero[6]}</td>
+                    <td>${numero[7]}</td>
+                    <td>${numero[8]}</td>
+                    <td>${numero[9]}</td>
+                </tr>
+            </table>
+            <br><br>
+        `);
+
+        numero.reverse();
+
+        document.write(`
+            <table class="tabla2">
+                <tr class="titulo">
+                    <td>NUMEROS EN ORDEN INVERSO:</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td>${numero[0]}</td>
+                    <td>${numero[1]}</td>
+                    <td>${numero[2]}</td>
+                    <td>${numero[3]}</td>
+                    <td>${numero[4]}</td>
+                    <td>${numero[5]}</td>
+                    <td>${numero[6]}</td>
+                    <td>${numero[7]}</td>
+                    <td>${numero[8]}</td>
+                    <td>${numero[9]}</td>
+                </tr>
+            </table>
+        `);
+    </script>
+</body>
+</html>

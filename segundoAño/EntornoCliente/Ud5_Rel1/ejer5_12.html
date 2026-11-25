@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer5_12.html</title>
+</head>
+<body>
+
+<script>
+    let cadena = prompt("Introduce una palabra:");
+
+    for (let i = 0; i < cadena.length; i++) {
+        if (cadena.charAt(i) == "A" || cadena.charAt(i) == "E" || cadena.charAt(i) == "I" || cadena.charAt(i) == "O" || cadena.charAt(i) == "U" ||
+            cadena.charAt(i) == "a" || cadena.charAt(i) == "e" || cadena.charAt(i) == "i" || cadena.charAt(i) == "o" || cadena.charAt(i) == "u") {
+            document.write(cadena.charAt(i) + "<br>");
+        } else {
+            document.write("*<br>");
+        }
+    }
+</script>
+
+</body>
+</html>

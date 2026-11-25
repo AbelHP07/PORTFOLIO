@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer6_2.html</title>
+</head>
+<body>
+    <script>
+        let nombres = ['MIGUEL', 'ELENA', 'JORGE', 'CRISTINA', 'IGNACIO', 'ALICIA'];
+
+        let buscar = prompt("Introduzca el nombre a buscar");
+        buscar = buscar.toUpperCase();
+
+        if (nombres.includes(buscar)) {
+            document.write(`Encontrado`);
+        } else {
+            document.write(`No encontrado`);
+        }
+    </script>
+</body>
+</html>

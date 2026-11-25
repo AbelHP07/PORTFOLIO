@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer5_3.html</title>
+</head>
+<body>
+    <script language="javascript">
+        const valorIntroducido = Math.round(prompt("Introduzca un número"));
+
+        switch (true) {
+            case valorIntroducido < 0 || valorIntroducido > 10:
+                document.write("Nota errónea");
+            break;
+            case valorIntroducido === 5:
+                document.write("Aprobado");
+            break;
+            case valorIntroducido === 6:
+                document.write("Bien");
+            break;
+            case valorIntroducido === 7 || valorIntroducido === 8:
+                document.write("Notable");
+            break;
+            case valorIntroducido === 9 || valorIntroducido === 10:
+                document.write("Sobresaliente");
+            break;
+            case valorIntroducido >= 0 && valorIntroducido <= 4:
+                document.write("Suspenso");
+            break;
+        }
+    </script>
+</body>
+</html>

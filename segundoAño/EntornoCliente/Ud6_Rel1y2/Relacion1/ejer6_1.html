@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer6_1.html</title>
+</head>
+<body>
+    <script>
+        let nombres = ['MIGUEL', 'ELENA', 'JORGE', 'CRISTINA', 'IGNACIO', 'ALICIA'];
+        let apellidos = ['GIL', 'SANCHEZ', 'RODRIGUEZ', 'ALONSO', 'VEGA', 'REY'];
+
+        for (let i in nombres) { //Recorremos los índices del array nombres, por lo que ya podemos acceder a la posición de los elementos en ambos arrays, tanto en el de nombres como en el de apellidos
+            
+            document.write(`${nombres[i]} ** ${apellidos[i]}<br>`);
+        }
+    </script>
+</body>
+</html>

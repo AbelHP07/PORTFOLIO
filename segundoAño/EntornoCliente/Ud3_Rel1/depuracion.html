@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <h1>Sumar dos numeros</h1>
+    <form name="f1">
+        <p>Por favor, introduce dos numeros :</p>
+        <input name="num1" type="text"> <br>
+        <input name="num2" type="text"> <br>
+        <input name="resul" type="text" disabled>
+        <button type="button" onclick="myFunction (f1) ">Sumar</button>
+    </form>
+    <script language="javascript">
+        function myFunction(f) {
+            var x, y, suma, text;
+            x =(f.num1.value) ;
+            y =(f.num2.value) ;
+            suma= parseInt(x)+parseInt(y);
+            text= suma;
+            f.resul.value = text;
+        }
+    </script>
+    </body>
+</html>

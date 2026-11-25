@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer5_15.html</title>
+</head>
+<body>
+
+<script>
+    let fecha = prompt("Introduce una fecha con el formato mm-dd-aa:");
+    let partes = fecha.split("-");
+
+    for (i=0;i <= (partes.length - 1); i++) {
+        partes[i] = parseInt(partes[i]);
+    }
+
+    //Debo comprobar que los días estén entre 1-31, los meses 1-12 y
+    //comprobar que ese mes pueda tener 31 días, por ejemplo
+
+    while (isNaN(partes[0]) || isNaN(partes[1]) || isNaN(partes[2]) ||
+        (partes[0] < 1 || partes[0] > 12) || (partes[1] < 1 || partes[1] > 31) ||
+        (partes[2] < 0 || partes[2] > 99)) {
+        fecha = prompt("Por favor, introduce una fecha con el formato mm-dd-aa:");
+        partes = fecha.split("-");
+
+        for (i=0;i <= (partes.length - 1); i++) {
+            partes[i] = parseInt(partes[i]);
+        }
+    }
+    
+    //Además, tengo que comprobar que no se puedan poner números negativos, por ejemplo
+
+    let mes = parseInt(partes[0]);
+    let dia = parseInt(partes[1]);
+    let año = parseInt(partes[2]) + 1900;
+
+    document.write("Naciste el día " + dia + " del mes " + mes + " del año " + año + "<br>");
+
+    if (año % 4 == 0 && (año % 100 != 0 || año % 400 == 0)) {
+        document.write("El año es bisiesto");
+    } else {
+        document.write("El año no es bisiesto");
+    }
+</script>
+
+</body>
+</html>

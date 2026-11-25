@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer3_4.html</title>
+</head>
+<body>
+    <script language="javascript">
+        if(numero){
+            for(let i=0;i<=10;i++){
+                document.write(`<p>${numero} * ${i} = ${numero*i}</p>`);
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejer3_3.html</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .borde-exterior.fila {
+            display: flex;
+            gap: 3px;
+        }
+
+        .borde-exterior {
+            border-top: 3px solid rgba(184, 184, 184, 0.52);
+            border-left: 3px solid rgba(184, 184, 184, 0.52);
+            border-right: 3px solid rgb(131, 131, 131);
+            border-bottom: 3px solid rgb(131, 131, 131);
+            padding: 2px;
+        }
+
+        .borde-interior{
+            border-top: 3px solid darkgray;
+            border-left: 3px solid darkgray;
+            border-right: 3px solid rgba(184, 184, 184, 0.52);
+            border-bottom: 3px solid rgba(184, 184, 184, 0.52);
+
+            margin: 0;
+            font-size: 24px;
+            font-family: "Times New Roman", Times, serif;
+            padding: 4px 8px;
+            text-align: center;
+
+            padding: 0;
+        }
+
+        .borde-interior.titulo{
+            padding: 1px;
+        }
+
+        .borde-interior:not(.segundo, .titulo){
+            min-width: 60px;
+        }
+
+        .borde-interior.segundo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .titulo{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .contenido{
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <script language="javascript">
+        const numero = prompt("Escribe un número para obtener su tabla de multiplicar");
+
+    if(numero){
+
+        document.write(`
+            <div class="borde-exterior titulo">
+                <p class="borde-interior titulo">TABLA DE MULTIPLICAR DEL ${numero}</p>\n
+            </div>
+        `);
+
+        document.write(`<div class="contenido">`);
+        for(let i=0;i<=10;i++){
+            document.write(`
+                <div class="borde-exterior fila">
+                    <p class="borde-interior">${numero} * ${i}</p>
+                    <p class="borde-interior segundo">${numero * i}</p>
+                </div>
+            `);
+        }
+        document.write(`</div>`);
+    }
+    </script>
+</body>
+</html>

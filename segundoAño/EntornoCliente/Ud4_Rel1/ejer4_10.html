@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer4_10.html</title>
+
+    <style>
+        h1 {
+            font-size: 50px;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        button {
+            font-size: 20px;
+        }
+
+        #resultado {
+            width: 480px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CALCULO DEL FACTORIAL</h1>
+
+    <label>Introduce una cantidad:</label>
+    <input type="number" id="numero">
+
+    <button id="boton">Calcula</button>
+    
+    <br><br>
+
+    <label>Resultado:</label>
+    <input type="text" id="resultado" disabled>
+
+    <script>
+        const boton = document.getElementById("boton");
+
+        boton.addEventListener("click", () => {
+            let n = parseInt(document.getElementById("numero").value);
+            let factorial = 1;
+
+            for (let i = n; i >= 1; i--) {
+                factorial = factorial * i;
+            }
+
+            document.getElementById("resultado").value = factorial;
+        });
+    </script>
+
+</body>
+</html>

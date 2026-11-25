@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer4_4.html</title>
+    <style>
+        .titulo{
+            background-color: lightblue;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        table{
+            text-align: center;
+            border-collapse: collapse;
+        }
+        td{
+            border: 4px ridge lightgray;
+        }
+        span{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let numero_pedido = prompt("Introduzca un número positivo mayor que 0");
+
+        while(numero_pedido <= 0 || isNaN(numero_pedido)){
+            numero_pedido = prompt("Introduzca un número positivo mayor que 0");
+        }
+
+        numero_pedido = parseInt(numero_pedido);
+
+        numero = numero_pedido;
+        num_cifras = 0;
+
+        while(numero_pedido > 0){
+            numero_pedido = Math.floor(numero_pedido/10); //Porque si no pongo Math.floor para quitar los decimales, siempre es mayor que 0, ya que siempre sería 0.algo
+
+            num_cifras++;
+        }
+
+        document.write(`
+        <table>
+            <tr>
+                <td class="titulo">
+                    <span>EL NÚMERO INTRODUCIDO ES: ${numero}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span><em>Número de cifras: ${num_cifras}</em></span>
+                </td>
+            <tr>
+        </table>
+        `);
+    </script>
+</body>
+</html>

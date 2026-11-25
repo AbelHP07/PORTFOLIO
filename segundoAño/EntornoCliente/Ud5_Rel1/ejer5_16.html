@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer5_16.html</title>
+</head>
+<body>
+
+<script>
+    let fecha1 = prompt("Introduce la primera fecha con el formato mm-dd-aa:");
+    let partes1 = fecha1.split("-");
+
+    let mes1 = parseInt(partes1[0]);
+    let dia1 = parseInt(partes1[1]);
+    let año1 = parseInt(partes1[2]) + 1900;
+
+    document.write("Naciste el día " + dia1 + " del mes " + mes1 + " del año " + año1 + "<br>");
+
+    let fecha2 = prompt("Introduce la segunda fecha con el formato mm-dd-aa:");
+    let partes2 = fecha2.split("-");
+
+    let mes2 = parseInt(partes2[0]);
+    let dia2 = parseInt(partes2[1]);
+    let año2 = parseInt(partes2[2]) + 1900;
+
+    document.write("Naciste el día " + dia2 + " del mes " + mes2 + " del año " + año2 + "<br>");
+
+    document.write("Los años bisiestos son:<br>");
+
+    for (let i = año1; i <= año2; i++) {
+        if (i % 4 == 0 && (i % 100 != 0 || i % 400 == 0)) {
+            document.write("Año bisiesto: " + i + "<br>");
+        }
+    }
+</script>
+
+</body>
+</html>

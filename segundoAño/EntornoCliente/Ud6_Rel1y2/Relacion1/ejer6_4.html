@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer6_4.html</title>
+</head>
+<body>
+    <script>
+        let texto = prompt("Introduzca una cadena de texto");
+        let palabras = texto.split(" ");
+
+        //Poner validación de cadena de texto
+        //Añadir posible copia del array
+
+        document.write("Número de palabras: " + palabras.length + "<br>");
+        document.write("Primera palabra: " + palabras[0] + "<br>");
+        document.write("Última palabra: " + palabras[palabras.length - 1] + "<br>");
+
+        palabras.reverse();
+        document.write("Palabras en orden inverso: " + palabras + "<br>");
+
+        palabras.reverse();
+        palabras.sort();
+        document.write("Palabras ordenadas de la A a la Z: " + palabras + "<br>");
+
+        palabras.reverse();
+        document.write("Palabras ordenadas de la Z a la A: " + palabras);
+    </script>
+</body>
+</html>

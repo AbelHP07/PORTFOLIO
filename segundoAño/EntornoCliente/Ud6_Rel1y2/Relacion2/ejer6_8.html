@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer6_8.html</title>
+
+    <style>
+        body{
+            background-color: white;
+        }
+
+        div{
+            background-color: darkred;
+            width: 220px;
+            padding: 10px;
+            color: white;
+            font-size: 20px;
+        }
+
+        input{
+            width: 210px;
+            font-size: 20px;
+        }
+
+        select{
+            width: 215px;
+            font-size: 20px;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        Numero de la Lista<br>
+        <input type="text" id="posicion" readonly>
+
+        Nombre de Rio<br>
+        <input type="text" id="nombre" readonly>
+
+        <select size="20" onchange="mostrar()" id="rios">
+            <option>Ríos</option>
+            <option>Adaja</option>
+            <option>Alagón</option>
+            <option>Alberche</option>
+            <option>Almanzora</option>
+            <option>Andarax</option>
+            <option>Aragón</option>
+            <option>Bidasoa</option>
+            <option>Besaya</option>
+            <option>Cinca</option>
+            <option>Deva</option>
+            <option>Duero</option>
+            <option>Ebro</option>
+            <option>Esla</option>
+            <option>Eume</option>
+            <option>Gallego</option>
+            <option>Genil</option>
+            <option>Guadalimar</option>
+            <option>Guadalhorce</option>
+            <option>Guadiana</option>
+        </select>
+    </div>
+
+    <script>
+        function mostrar(){
+            let lista = document.getElementById("rios");
+            let posicion = lista.selectedIndex;
+            let nombre = lista.options[posicion].value;
+
+            document.getElementById("posicion").value = posicion;
+            document.getElementById("nombre").value = nombre;
+        }
+    </script>
+
+</body>
+</html>

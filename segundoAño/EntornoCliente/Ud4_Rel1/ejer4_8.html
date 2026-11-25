@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer4_8.html</title>
+    <style>
+        .cuatro{
+            font-size: 400%;
+            color: green;
+        }
+        .nueve{
+            font-size: 50%;
+            color: red;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        for(i=1;i<=300;i++){
+            if(i%10 === 0){
+                document.write(`${i}`);
+                document.write(`<br><br>`);
+            }else if(i%4 === 0){
+                document.write(`<span class="cuatro">${i}</span>`);
+            }else if(i%9 === 0){
+                document.write(`<span class="nueve">${i}</span>`);
+            }else{
+                document.write(`${i}`);
+            }
+        }
+    </script>
+</body>
+</html>

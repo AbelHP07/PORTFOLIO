@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer5_8.html</title>
+</head>
+<body>
+
+<script>
+    let numero = Math.floor(Math.random() * 11);
+    let acertado = false;
+
+    for (let intento = 1; intento <= 5; intento++) {
+        let numeroUsuario = parseInt(prompt("Introduce un número entre 0 y 10:"));
+
+        document.write("NUMERO TECLADO: " + numeroUsuario + ", INTENTO: " + intento + "<br>");
+
+        if (numeroUsuario == numero) {
+            alert("HAS ACERTADO");
+            acertado = true;
+            break;
+        } else if (numeroUsuario < numero) {
+            alert("<<INTRODUCE UN NUMERO MAYOR>>");
+        } else {
+            alert("<<INTRODUCE UN NUMERO MENOR>>");
+        }
+    }
+
+    if (acertado == false) {
+        alert("HAS PERDIDO");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer5_7.html</title>
+</head>
+<body>
+
+<script>
+    let fondo = prompt("Introduce el color de fondo (R, A, Y o V):");
+    let texto = prompt("Introduce el color del texto (R, A, Y o V):");
+
+    let colorFondo;
+    let colorTexto;
+
+    switch (fondo) {
+        case "R":
+        case "r":
+            colorFondo = "hotpink";
+            break;
+        case "A":
+        case "a":
+            colorFondo = "lightblue";
+            break;
+        case "Y":
+        case "y":
+            colorFondo = "lightyellow";
+            break;
+        case "V":
+        case "v":
+            colorFondo = "lightgreen";
+            break;
+        default:
+            colorFondo = "lightgrey";
+    }
+
+    switch (texto) {
+        case "R":
+        case "r":
+            colorTexto = "red";
+            break;
+        case "A":
+        case "a":
+            colorTexto = "blue";
+            break;
+        case "Y":
+        case "y":
+            colorTexto = "yellow";
+            break;
+        case "V":
+        case "v":
+            colorTexto = "green";
+            break;
+        default:
+            colorTexto = "black";
+    }
+
+    document.write("<table border='1' style='background-color:" + colorFondo + "; color:" + colorTexto + ";'>");
+    document.write("<tr><td>TEXTO CON COLOR</td></tr>");
+    document.write("</table>");
+</script>
+
+</body>
+</html>

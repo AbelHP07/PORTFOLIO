@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer4_11.html</title>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            color: green;
+        }
+
+        input {
+            width: 100px;
+            color: green;
+        }
+
+        button {
+            font-size: 15px;
+            padding-top: 2px;
+            padding-bottom: 4px;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: green;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <label>Introduzca la expresión:</label>
+        <input type="text" id="expresion">
+    </p>
+
+    <p>
+        <label>Resultado:</label>
+        <input type="text" id="resultado" disabled>
+    </p>
+
+    <button id="boton">Evaluar</button>
+
+    <script>
+        const boton = document.getElementById("boton");
+
+        boton.addEventListener("click", () => {
+            let expresion = document.getElementById("expresion").value;
+            let resultado = eval(expresion);
+
+            document.getElementById("resultado").value = resultado;
+        });
+    </script>
+
+</body>
+</html>
