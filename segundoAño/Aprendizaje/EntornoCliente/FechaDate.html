@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas Date</title>
+</head>
+<body>
+    <script>
+        let diaInicial = new Date(2026, 10, 1).getDay();
+
+        let espaciosVacios = diaInicial === 0 ? 6 : diaInicial - 1;
+
+        let totalDias = new Date(2026, 11, 0).getDate();
+
+        
+
+        document.write(diaInicial);
+    </script>
+</body>
+</html>

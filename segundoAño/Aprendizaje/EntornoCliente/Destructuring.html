@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <script>
+        //Destructuring de arrays
+
+        const array = [10, 20, 30, 40, 50, 60]
+
+        let [primero,segundo] = array;
+
+        document.write('Primero: '+primero+' --- Segundo: '+segundo+'<br><br>');
+
+        //--------------------------------------------------------------------------
+
+        //let tercero = ''; Se puede poner, pero no es necesario
+
+        [primero,,tercero] = array;
+
+        document.write('Primero: '+primero+' --- Tercero: '+tercero+'<br><br>');
+
+        //--------------------------------------------------------------------------
+
+        //let resto = ''; Se puede poner, pero no es necesario
+
+        [primero,segundo,...resto] = array;
+
+        document.write('Primero: '+primero+' --- Segundo: '+segundo+' --- Los demás: '+resto+'<br><br>');
+
+        //--------------------------------------------------------------------------
+        //--------------------------------------------------------------------------
+        //--------------------------------------------------------------------------
+
+        //Destructuring de objetos
+
+        const objetos = {nombre: 'Abel', edad: '18'}
+
+        let {nombre,edad} = objetos; //Deben coincidir los nombre de las variables con el de su atributo correspondiente
+
+        document.write(nombre+'---');
+        document.write(edad+'<br><br>');
+
+        //--------------------------------------------------------------------------
+
+        let {nombre: NombrePersona, edad: EdadPersona} = objetos;
+
+        document.write(NombrePersona+'---');
+        document.write(EdadPersona+'<br><br>');
+
+        let {nombre: nombre1, sexo = 'masculino'} = objetos;
+
+        document.write(nombre1+'---');
+        document.write(sexo+'<br><br>');
+
+        //--------------------------------------------------------------------------
+
+        const arrayObjetos = [
+            {
+                nombre: 'Pepe',
+                edad: 19
+            },
+            {
+                nombre: 'Juan',
+                edad: 29
+            }
+        ]
+
+        let = [
+            {
+                nombre: hombre1
+            },
+            {
+                nombre: hombre2
+            }
+        ] = arrayObjetos;
+
+        document.write(hombre1+'---');
+        document.write(hombre2+'<br><br>');
+
+        //--------------------------------------------------------------------------
+
+        //Destructuring de objetos en funciones
+
+        function mostrarPersona ({nombre, edad}) {
+            document.write(nombre+'---');
+            document.write(edad+'<br><br>');
+        }
+
+        let persona = {
+            nombre: 'Abel',
+            edad: 18
+        }
+
+        mostrarPersona(persona);
+
+        //--------------------------------------------------------------------------
+
+        //Destructuring de arrays en funciones
+
+        function sumar([a,b]){
+            document.write(a+b+'<br><br>');
+        }
+
+        let numeroSuma = [10,20]
+
+        sumar(numeroSuma);
+
+        //--------------------------------------------------------------------------
+
+        //Ejemplo real completo
+
+        let usuario = {
+            nombre: "Abel",
+            edad: 18,
+            email: "abel@gmail.com",
+            direccion: {
+                ciudad: "Ayamonte",
+                codigoPostal: 21400
+            }
+        };
+
+        let {
+            nombre: nombreEj,
+            edad: edadEj,
+            direccion: { ciudad, codigoPostal }
+        } = usuario;
+
+        document.write(nombreEj+'<br>');
+        document.write(edadEj+'<br>');
+        document.write(ciudad+'<br>');
+        document.write(codigoPostal+'<br><br>');
+
+        //Resumen
+
+        /*
+
+        - ARRAY --------------------------------------------------------------------------------------------
+        
+            let [a, b] = array;
+
+            posición 0 → a
+            posición 1 → b
+
+        - SALTARSE POSICIONES ------------------------------------------------------------------------------
+
+            let [a, , c] = array;
+
+        - RECOGER EL RESTO ---------------------------------------------------------------------------------
+
+            let [a, ...resto] = array;
+
+        - OBJETO -------------------------------------------------------------------------------------------
+
+            let { nombre, edad } = persona;
+
+            (las propiedades deben llamarse igual)
+
+        - RENOMBRAR ----------------------------------------------------------------------------------------
+
+            let { nombre: nombrePersona } = persona;
+
+        - VALOR POR DEFECTO (que antes no existía) ---------------------------------------------------------
+
+            let { edad = 18 } = persona;
+
+        - FUNCIÓN + OBJETO ---------------------------------------------------------------------------------
+
+            function mostrar({ nombre, edad }) {
+                console.log(nombre, edad);
+            }
+
+        - FUNCIÓN + ARRAY ----------------------------------------------------------------------------------
+
+            function sumar([a, b]) {
+                return a + b;
+            }
+
+        */
+    </script>
+</body>
+</html>

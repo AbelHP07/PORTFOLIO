@@ -1,0 +1,13 @@
+body {
+  background-color: lightblue;
+}
+body h1 {
+  color: red;
+}
+body p {
+  font-size: 20px;
+}
+body .pepe span {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: blue;
+}/*# sourceMappingURL=estilos.css.map */

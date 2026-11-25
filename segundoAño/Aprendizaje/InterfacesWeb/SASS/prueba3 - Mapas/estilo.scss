@@ -1,0 +1,15 @@
+@import "_mapas.scss";
+
+body{
+    h1{
+        color: map-get($map: $colores, $key: h1);
+    }
+    > p{
+        color: map-get($map: $colores, $key: p);
+    }
+    div{
+        height: 100px;
+        width: 100px;
+        background-color: map-get($map: $colores, $key: div);
+    }
+}

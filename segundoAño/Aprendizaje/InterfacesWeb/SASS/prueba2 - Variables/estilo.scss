@@ -1,0 +1,27 @@
+$color: lightcoral;
+$colorAzul: blue;
+
+@import "_variables.scss";
+
+
+// en caso de no haber un !default en el
+// archivo _variables.scss, al poner la siguiente línea:
+
+// $color: lightblue;
+
+// el archivo tomaría como valor definitivo el lightblue,
+// por haber sido la última sobreescritura del archivo
+
+
+// si ponemos #{color} se escribe literalmente "color"
+// pero si ponemos $color se pone su valor "lightcoral"
+
+body{
+    background-color: $color;
+    .#{$colorAzul}{
+        color: $colorAzul;
+    }
+    .btn-#{$colorAzul}{
+        color: $colorAzul;
+    }
+}
